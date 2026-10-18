@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" role="img" aria-label="Wayout, isotipo Sector">
+  <!-- Disco: circulo de radio 200 con un sector de 90 grados recortado (de -45 a +45). -->
+  <!-- Gajo: el mismo sector girado 180 grados y desplazado a la derecha; canal minimo 28. -->
+  <path d="M361.29 138.579A200 200 0 1 0 361.29 421.421L219.869 280Z" fill="oklch(14% .01 95)"/><path d="M540.131 280L398.71 138.579A200 200 0 0 0 398.71 421.421Z" fill="oklch(14% .01 95)"/>
+</svg>

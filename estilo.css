@@ -1,0 +1,133 @@
+/* Wayout, sitio. Mismo mundo que la app: señalética de aeropuerto. Tokens de DESIGN.md. */
+:root {
+  --yellow: oklch(88% .18 95);
+  --yellow-deep: oklch(82% .18 95);
+  --ivory: oklch(96% .02 95);
+  --ivory-2: oklch(93% .025 95);
+  --ink: oklch(14% .01 95);
+  --ink-2: oklch(38% .02 95);
+  --ink-hover: oklch(24% .01 95);
+  --picto: oklch(99% 0 0);
+  --line: oklch(14% .01 95 / .1);
+  --line-strong: oklch(14% .01 95 / .22);
+  --shadow: oklch(55% .14 95 / .35);
+  --tone-3: oklch(52% .03 95);
+  --tone-5: oklch(78% .08 95);
+  --sans: "Hanken Grotesk", sans-serif;
+  --mono: "Red Hat Mono", monospace;
+  --ease-in: cubic-bezier(.23, 1, .32, 1);
+  --measure: 62ch;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--yellow); color: var(--ink); -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.45;
+  font-variant-numeric: tabular-nums lining-nums slashed-zero;
+  background: var(--yellow);
+  min-height: 100vh;
+}
+::selection { background: var(--ink); color: var(--yellow); }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--ink-hover); }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+p { margin: 0; text-wrap: pretty; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+img { display: block; max-width: 100%; height: auto; }
+i.ph-light { line-height: 1; }
+
+.wrap { width: min(1180px, 100% - 48px); margin-inline: auto; }
+
+/* Cabecera: wordmark a la izquierda, un solo enlace a la derecha. */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 22px; letter-spacing: -.02em; text-decoration: none; }
+.brand svg { width: 30px; height: 30px; }
+.top .link { font-size: 14px; font-weight: 500; }
+
+/* Pictograma: icono blanco sobre cuadrado negro, el mismo de la app. */
+.picto { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; flex: none; background: var(--ink); color: var(--picto); border-radius: 2px; font-size: 18px; }
+.picto.lg { width: 40px; height: 40px; font-size: 24px; }
+
+/* Botones y chips, radios de 2 px como en la app. */
+.btn { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 18px; font: inherit; font-weight: 600; font-size: 15px; color: var(--ink); background: var(--ivory); border: 1px solid var(--ink); border-radius: 2px; text-decoration: none; cursor: pointer; transition: transform 120ms var(--ease-in), background 120ms; }
+.btn:hover { background: var(--ivory-2); }
+.btn:active { transform: scale(.97); }
+.btn.primary { background: var(--ink); color: var(--yellow); }
+.btn.primary:hover { background: var(--ink-hover); color: var(--yellow); }
+.btn i { font-size: 20px; }
+
+/* Portada: cifra o titular grande arriba, texto de un ancho de lectura, acciones. */
+.hero { padding: 72px 0 96px; }
+.hero h1 { font-size: clamp(44px, 7.2vw, 96px); font-weight: 700; line-height: .9; letter-spacing: -.04em; max-width: 14ch; }
+.hero .lead { margin-top: 28px; max-width: var(--measure); font-size: clamp(17px, 1.4vw, 20px); line-height: 1.4; }
+.hero .acts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 36px; }
+.hero .fine { margin-top: 14px; font-size: 13px; color: var(--ink-2); }
+.sys { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: 16px; }
+.sys .picto { width: 32px; height: 32px; font-size: 20px; }
+
+/* Panel marfil, el primitivo de la app. */
+.panel { background: var(--ivory); border-radius: 4px; box-shadow: 0 1px 0 var(--line-strong), 0 12px 32px -20px var(--shadow); overflow: hidden; }
+.panel-head { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-bottom: 1px solid var(--line); }
+.panel-head h2 { font-size: 18px; font-weight: 700; letter-spacing: -.01em; }
+.panel-head .meta { font-size: 13px; color: var(--ink-2); }
+.panel-body { padding: 20px; }
+
+section.block { padding: 0 0 112px; }
+.block > h2 { font-size: clamp(28px, 3.4vw, 44px); font-weight: 700; letter-spacing: -.025em; line-height: 1; max-width: 22ch; margin-bottom: 36px; }
+
+/* Dos formatos: no dos tarjetas iguales. El protagonista es la captura; los formatos son filas de tabla. */
+.places { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(320px, 1fr); gap: 32px; align-items: start; }
+.shot { background: var(--ivory); border-radius: 4px; padding: 10px; box-shadow: 0 1px 0 var(--line-strong), 0 20px 40px -24px var(--shadow); }
+.shot img { border-radius: 2px; }
+.shot figcaption { padding: 10px 6px 4px; font-size: 13px; color: var(--ink-2); }
+
+.rows { list-style: none; margin: 0; padding: 0; }
+.rows li { display: grid; grid-template-columns: 28px 1fr; gap: 6px 14px; padding: 18px 0; border-top: 1px solid var(--line-strong); }
+.rows li:first-child { border-top: 0; padding-top: 0; }
+.rows b { font-size: 18px; font-weight: 700; letter-spacing: -.01em; }
+.rows p { grid-column: 2; font-size: 15px; color: var(--ink-2); max-width: 44ch; }
+.rows .spec { grid-column: 2; margin-top: 6px; font-family: var(--mono); font-size: 13px; }
+.rows img { grid-column: 2; margin-top: 12px; border: 1px solid var(--line-strong); border-radius: 2px; }
+
+/* Reglas y condiciones: lista con pictograma, texto corrido. */
+.terms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 56px; max-width: 880px; }
+.terms div { display: grid; grid-template-columns: 28px 1fr; gap: 4px 14px; }
+.terms b { font-size: 17px; }
+.terms p { grid-column: 2; font-size: 15px; color: var(--ink-2); }
+
+/* Contacto: dos filas grandes tipo tablero de salidas. */
+.contact { background: var(--ink); color: var(--yellow); border-radius: 4px; padding: 36px 32px; }
+.contact h2 { font-size: clamp(26px, 3vw, 40px); letter-spacing: -.025em; line-height: 1; }
+.contact p { margin-top: 10px; font-size: 15px; color: oklch(78% .12 95); max-width: 56ch; }
+.contact .lines { display: grid; gap: 1px; margin-top: 28px; }
+.contact .line { display: grid; grid-template-columns: 40px 1fr auto; align-items: center; gap: 16px; padding: 18px 0; border-top: 1px solid oklch(88% .18 95 / .25); color: var(--yellow); text-decoration: none; }
+.contact .line:hover .val { text-decoration: underline; text-underline-offset: 4px; }
+.contact .picto { background: var(--yellow); color: var(--ink); width: 40px; height: 40px; font-size: 24px; }
+.contact .lab { display: block; font-size: 13px; color: oklch(78% .12 95); }
+.contact .val { display: block; font-size: clamp(20px, 2.6vw, 30px); font-weight: 700; letter-spacing: -.02em; line-height: 1.1; overflow-wrap: anywhere; }
+.contact .arr { font-size: 26px; }
+
+footer { padding: 40px 0 48px; font-size: 13px; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 8px 24px; }
+
+/* Entrada: una sola coreografía, bloques en escalera, bajo 300 ms. */
+.rise { animation: rise 260ms var(--ease-in) both; animation-delay: calc(var(--i, 0) * 60ms); }
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 860px) {
+  .wrap { width: min(1180px, 100% - 32px); }
+  .hero { padding: 40px 0 72px; }
+  .places { grid-template-columns: 1fr; }
+  section.block { padding-bottom: 80px; }
+  .terms { grid-template-columns: 1fr; gap: 28px; }
+  .contact { padding: 28px 20px; }
+  .contact .line { grid-template-columns: 40px 1fr; }
+  .contact .arr { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise { animation: none; }
+  .btn { transition: none; }
+}

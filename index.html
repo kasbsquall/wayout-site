@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wayout</title>
+  <meta name="description" content="Wayout mide y limpia la basura de desarrollo en Windows: cachés de npm, pip y uv, node_modules dormidos, Docker, WSL y temporales. Gratis, con la lista a la vista antes de borrar.">
+  <link rel="icon" href="img/isotipo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Red+Hat+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <header class="wrap top">
+    <a class="brand" href="./">
+      <svg viewBox="0 0 560 560" aria-hidden="true"><path d="M361.29 138.579A200 200 0 1 0 361.29 421.421L219.869 280Z" fill="currentColor"/><path d="M540.131 280L398.71 138.579A200 200 0 0 0 398.71 421.421Z" fill="currentColor"/></svg>
+      Wayout
+    </a>
+    <a class="link" href="anunciar/">Anunciarse</a>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1 class="rise" style="--i:0">Lo que sobra de programar con IA, fuera del disco.</h1>
+      <p class="lead rise" style="--i:1">Wayout mide cuánto ocupan las cachés de npm, pip, uv y Gradle, las carpetas node_modules y target de proyectos que ya no tocas, los temporales, Docker y el disco de WSL. Te enseña la lista, con lo que se recupera cada cosa y con qué comando, y limpia solo lo que marcas.</p>
+      <div class="acts rise" style="--i:2">
+        <span class="sys"><span class="picto" aria-hidden="true"><i class="ph-light ph-windows-logo"></i></span>Windows 10 y 11, gratis, sin cuenta</span>
+      </div>
+      <p class="fine rise" style="--i:3">Versión 0.1 en pruebas. La descarga pública se abre cuando el instalador esté firmado.</p>
+    </section>
+
+    <section class="block" aria-labelledby="h-que">
+      <h2 id="h-que">Qué mide y qué limpia</h2>
+      <div class="places">
+        <figure class="shot rise" style="--i:1">
+          <img src="img/app-1440.png" width="1440" height="900" alt="Pantalla de Wayout tras escanear: 86,6 GB para liberar, barra del disco por tramos y tablas de cachés y carpetas de proyectos" loading="eager" fetchpriority="high">
+          <figcaption>Una sola pantalla: la cifra que puedes liberar, el disco partido por tramos y cada bloque con sus filas.</figcaption>
+        </figure>
+        <ul class="rows">
+          <li class="rise" style="--i:2"><span class="picto" aria-hidden="true"><i class="ph-light ph-package"></i></span><b>Cachés globales</b><p>npm, pnpm, Yarn, pip, uv, Gradle, Cargo, modelos de HuggingFace, navegadores de Playwright y Puppeteer, con el comando oficial de limpieza de cada una.</p></li>
+          <li class="rise" style="--i:3"><span class="picto" aria-hidden="true"><i class="ph-light ph-folder-simple"></i></span><b>Carpetas de proyectos</b><p>node_modules, .venv, target, .next y dist de los proyectos de Downloads, Documents y Desktop. Las que llevan 30 días sin tocarse se marcan como dormidas.</p></li>
+          <li class="rise" style="--i:4"><span class="picto" aria-hidden="true"><i class="ph-light ph-shipping-container"></i></span><b>Docker y WSL</b><p>Imágenes colgadas, contenedores parados, volúmenes sin uso y caché de construcción. El disco de WSL se mide y se explica cómo compactarlo.</p></li>
+          <li class="rise" style="--i:5"><span class="picto" aria-hidden="true"><i class="ph-light ph-clock"></i></span><b>Temporales, procesos y puertos</b><p>El %TEMP% del usuario, los procesos de desarrollo vivos con su memoria y los puertos que siguen en escucha.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-reglas">
+      <h2 id="h-reglas">Reglas que no se negocian</h2>
+      <div class="terms">
+        <div class="rise" style="--i:1"><span class="picto" aria-hidden="true"><i class="ph-light ph-list-checks"></i></span><b>Ves la lista antes</b><p>Nunca borra sin que hayas visto cada ítem y confirmado. Cada fila dice cómo se regenera y su nivel de riesgo.</p></div>
+        <div class="rise" style="--i:2"><span class="picto" aria-hidden="true"><i class="ph-light ph-trash"></i></span><b>Papelera primero</b><p>Hasta 1 GB va a la papelera de Windows y se puede restaurar. Por encima se borra directo, y la app lo avisa antes.</p></div>
+        <div class="rise" style="--i:3"><span class="picto" aria-hidden="true"><i class="ph-light ph-code"></i></span><b>Tu código no se toca</b><p>Solo cachés y carpetas regenerables. Código fuente, .env, .git y bases de datos quedan fuera siempre.</p></div>
+        <div class="rise" style="--i:4"><span class="picto" aria-hidden="true"><i class="ph-light ph-megaphone"></i></span><b>Gratis, con patrocinio</b><p>La app se sostiene con un banner y un panel de patrocinadores. Solo imagen y enlace, sin rastreadores. <a href="anunciar/">Cómo anunciarse</a>.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>Wayout, una app de AVANC3.</span>
+    <a href="anunciar/">Anunciarse</a>
+    <a href="https://avanc3.pe">avanc3.pe</a>
+  </footer>
+</body>
+</html>
