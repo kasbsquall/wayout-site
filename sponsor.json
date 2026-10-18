@@ -1,5 +1,11 @@
 {
-  "contact": { "label": "Anunciarse en Wayout", "url": "https://wayout.avanc3.pe/anunciar" },
+  "contact": {
+    "label": "Anunciarse en Wayout",
+    "url": "https://wayout.avanc3.pe/anunciar",
+    "en": {
+      "label": "Advertise on Wayout"
+    }
+  },
   "disclosure": "Enlaces de afiliado: Wayout recibe una comisión y a ti te cuesta lo mismo.",
   "spots": [
     {
@@ -8,7 +14,12 @@
       "title": "RackNerd: VPS KVM desde 21,99 $ al año",
       "text": "2 GB de RAM, 35 GB de SSD y 5 TB de tráfico por 35,99 $ al año. Para desplegar lo que sale de tu disco.",
       "cta": "Ver oferta",
-      "url": "https://my.racknerd.com/aff.php?aff=15761&pid=953"
+      "url": "https://my.racknerd.com/aff.php?aff=15761&pid=953",
+      "en": {
+        "title": "RackNerd: KVM VPS from $21.99 a year",
+        "text": "2 GB of RAM, 35 GB of SSD and 5 TB of traffic for $35.99 a year. For deploying what comes off your drive.",
+        "cta": "See offer"
+      }
     }
   ],
   "rail": {
@@ -20,7 +31,10 @@
         "url": "https://my.racknerd.com/aff.php?aff=15761",
         "alt": "RackNerd: VPS y servidores dedicados con precios rebajados",
         "width": 300,
-        "height": 600
+        "height": 600,
+        "en": {
+          "alt": "RackNerd: discounted VPS and dedicated servers"
+        }
       },
       {
         "id": "wayout-anunciate",
@@ -30,8 +44,17 @@
         "height": 600,
         "title": "Tu marca, frente a quien programa con IA",
         "text": "Este espacio lo ve cada vibe coder que abre Wayout para liberar disco.",
-        "cta": "Cómo anunciarse"
+        "cta": "Cómo anunciarse",
+        "en": {
+          "alt": "Advertise on Wayout",
+          "title": "Your brand, in front of people who code with AI",
+          "text": "Every vibe coder who opens Wayout to free up disk space sees this spot.",
+          "cta": "How to advertise"
+        }
       }
     ]
+  },
+  "en": {
+    "disclosure": "Affiliate links: Wayout earns a commission and it costs you the same."
   }
 }
