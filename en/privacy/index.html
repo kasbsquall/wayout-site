@@ -42,6 +42,7 @@
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-globe"></i></span>The connections it makes</h2>
       <ul>
         <li>When it opens, it downloads <code>https://wayout.avanc3.pe/sponsor.json</code>, the file with the ads it shows. It is hosted on GitHub Pages. As with any website visit, the server receives your IP address and technical details of the request; the request carries no data about you or your computer.</li>
+        <li>After measuring, it checks <code>https://github.com/kasbsquall/wayout-releases/releases/latest/download/latest.json</code> to find out whether a new version exists, at most once every 12 hours while the app is open. GitHub receives your IP address and technical details of the request; the request carries no data about you or your computer. If there is a new version, Wayout downloads and installs it only when you ask, and checks its signature first.</li>
         <li>Banner images load from each advertiser's site (today, racknerd.com), which also receives your IP address.</li>
         <li>Clicking an ad or a help link opens it in your browser. Advertiser links may be affiliate links: they tell the advertiser the visit came from Wayout so it pays a commission if you buy, at no extra cost to you.</li>
       </ul>
