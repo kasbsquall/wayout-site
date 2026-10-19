@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacidad</title>
+  <meta name="description" content="Qué guarda Wayout en tu equipo y qué conexiones hace. Sin cuentas, sin datos personales, sin analítica.">
+  <link rel="icon" href="../img/isotipo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Red+Hat+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+<body>
+  <header class="wrap top">
+    <a class="brand" href="../">
+      <svg viewBox="0 0 560 560" aria-hidden="true"><path d="M361.29 138.579A200 200 0 1 0 361.29 421.421L219.869 280Z" fill="currentColor"/><path d="M540.131 280L398.71 138.579A200 200 0 0 0 398.71 421.421Z" fill="currentColor"/></svg>
+      Wayout
+    </a>
+    <a class="link" href="../en/privacy/" hreflang="en" lang="en">English</a>
+  </header>
+
+  <main class="wrap">
+    <article class="doc rise">
+      <h1>Privacidad</h1>
+      <p class="updated">Actualizado el 18 de octubre de 2026.</p>
+      <p>Wayout es una app de escritorio para Windows que mide y limpia la basura que deja el desarrollo de software. Funciona en tu equipo, no tiene cuentas y no te pide datos personales. Aquí está todo lo que guarda en tu equipo y cada conexión que hace.</p>
+
+      <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-hard-drives"></i></span>Lo que analiza se queda en tu equipo</h2>
+      <p>Para medir el disco, Wayout lee rutas, tamaños y fechas de carpetas, los nombres de tus proyectos y la lista de procesos y puertos abiertos. Todo eso se muestra en la ventana y Wayout no lo envía a ningún servidor.</p>
+
+      <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-floppy-disk"></i></span>Lo que guarda en tu equipo</h2>
+      <ul>
+        <li>La configuración, en <code>%APPDATA%\pe.avanc3.wayout\settings.json</code>: si la revisión en segundo plano está activa, el umbral de avisos, el idioma, la última cifra medida y las carpetas donde busca proyectos.</li>
+        <li>Las preferencias de la ventana (idioma, carpetas elegidas, si ya viste el recorrido) y la última copia del archivo de anuncios, en el almacenamiento local de la ventana, dentro de <code>%LOCALAPPDATA%\pe.avanc3.wayout</code>.</li>
+        <li>El registro de limpieza, en <code>%LOCALAPPDATA%\Limpiador\limpieza.log</code>: cada ruta borrada con su tamaño, el método (papelera o borrado directo) y la fecha.</li>
+        <li>Si activas "Abrir Wayout al iniciar sesión", una entrada en <code>HKCU\Software\Microsoft\Windows\CurrentVersion\Run</code>, que se quita al desactivarlo.</li>
+      </ul>
+      <p>Para quitar todo esto basta con desinstalar Wayout y eliminar esas carpetas.</p>
+
+      <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-globe"></i></span>Las conexiones que hace</h2>
+      <ul>
+        <li>Al abrirse descarga <code>https://wayout.avanc3.pe/sponsor.json</code>, el archivo con los anuncios que muestra. Está alojado en GitHub Pages. Como en cualquier visita a una web, el servidor recibe tu dirección IP y datos técnicos de la petición; la petición no lleva ningún dato tuyo ni de tu equipo.</li>
+        <li>Las imágenes de los banners se cargan desde el sitio de cada anunciante (hoy, racknerd.com), que también recibe tu dirección IP.</li>
+        <li>Si haces clic en un anuncio o en un enlace de ayuda, se abre en tu navegador. Los enlaces de anunciantes pueden ser de afiliado: identifican a Wayout ante el anunciante para que pague una comisión si compras, sin coste extra para ti.</li>
+      </ul>
+      <p>Esta versión no tiene analítica ni telemetría. Si una versión futura las incluye, te lo pedirá antes de activarlas y podrás apagarlas en Configuración.</p>
+
+      <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-clock-clockwise"></i></span>La revisión en segundo plano</h2>
+      <p>Si la activas, cada 8 horas Wayout mide cachés, carpetas de proyectos y temporales en tu equipo y, si pasan del umbral que elegiste, muestra un aviso de Windows. La revisión no borra nada y no envía nada.</p>
+
+      <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-plugs-connected"></i></span>Si lo conectas a un asistente de IA</h2>
+      <p>Wayout incluye <code>wayout-mcp.exe</code>, un servidor MCP para asistentes de programación como Claude Code. No hace nada por su cuenta: solo funciona si tú lo registras en tu asistente. Cuando el asistente lo consulta, le entrega las rutas, tamaños, fechas y nombres de proyectos que mide, y el asistente puede enviarlos al servicio de IA que uses, bajo las reglas de privacidad de ese servicio. El servidor no borra nada, no muestra anuncios y no hace conexiones propias.</p>
+
+      <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-envelope-simple"></i></span>Contacto</h2>
+      <p>Wayout es una app de AVANC3, nombre comercial de Kevin Soto (Perú). Para preguntas sobre esta política, escribe a <a href="mailto:kevin2005_10@hotmail.com">kevin2005_10@hotmail.com</a>. Si la política cambia, se actualiza la fecha de arriba.</p>
+    </article>
+  </main>
+
+  <footer class="wrap">
+    <span>Wayout, una app de AVANC3.</span>
+    <a href="../">Qué es Wayout</a>
+    <a href="../privacidad/">Privacidad</a>
+    <a href="../terminos/">Términos</a>
+    <a href="../que-borra/">Qué borra y qué no</a>
+  </footer>
+</body>
+</html>

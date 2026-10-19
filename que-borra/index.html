@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qué borra Wayout y qué nunca toca</title>
+  <meta name="description" content="La lista completa de lo que Wayout ofrece borrar, lo que solo mide y lo que rechaza.">
+  <link rel="icon" href="../img/isotipo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Red+Hat+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+<body>
+  <header class="wrap top">
+    <a class="brand" href="../">
+      <svg viewBox="0 0 560 560" aria-hidden="true"><path d="M361.29 138.579A200 200 0 1 0 361.29 421.421L219.869 280Z" fill="currentColor"/><path d="M540.131 280L398.71 138.579A200 200 0 0 0 398.71 421.421Z" fill="currentColor"/></svg>
+      Wayout
+    </a>
+    <a class="link" href="../en/what-it-deletes/" hreflang="en" lang="en">English</a>
+  </header>
+
+  <main class="wrap">
+    <article class="doc rise">
+      <h1>Qué borra Wayout y qué nunca toca</h1>
+      <p class="updated">Actualizado el 18 de octubre de 2026.</p>
+      <p>Wayout libera espacio borrando cosas que se vuelven a crear. Esta es la lista completa de lo que ofrece borrar, lo que solo mide y lo que rechaza aunque se lo pidan.</p>
+
+      <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-broom"></i></span>Lo que ofrece borrar</h2>
+      <ul>
+        <li>Cachés de herramientas: npm, pnpm, Yarn, Bun, pip, uv, Cargo, Gradle, Go, pub (Dart y Flutter), los navegadores de Playwright y Puppeteer, los modelos de HuggingFace, Ollama y LM Studio, y las cachés e instaladores de extensiones de VS Code, Cursor y Antigravity.</li>
+        <li>Carpetas que se regeneran dentro de tus proyectos: <code>node_modules</code>, <code>.venv</code> y <code>venv</code>, <code>.next</code>, <code>.nuxt</code>, <code>.turbo</code>, <code>.svelte-kit</code>, <code>.angular</code> y <code>.parcel-cache</code>; <code>target</code> solo junto a un <code>Cargo.toml</code>, y <code>dist</code> o <code>build</code> solo junto a un <code>package.json</code>.</li>
+        <li>El contenido de tu carpeta de temporales (<code>%TEMP%</code>). Lo que está en uso se salta.</li>
+        <li>En Docker, con sus propios comandos de limpieza: imágenes colgadas, caché de construcción, contenedores parados y volúmenes sin uso. Los dos últimos van marcados "con cuidado".</li>
+      </ul>
+      <p>Cada fila dice cuánto pesa, cuándo se usó por última vez y cómo se recupera. Nada se borra sin que veas la lista y confirmes.</p>
+
+      <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-eye"></i></span>Lo que solo mide</h2>
+      <ul>
+        <li>El disco virtual de WSL, que crece y no se encoge solo. Wayout te da el comando para compactarlo.</li>
+        <li>Los emuladores de Android, porque guardan las apps y los datos que instalaste en ellos.</li>
+        <li>Los procesos de desarrollo y los puertos abiertos. Terminar un proceso es opcional y pide confirmación.</li>
+      </ul>
+
+      <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-prohibit"></i></span>Lo que nunca toca</h2>
+      <ul>
+        <li>Tu código fuente y cualquier archivo de tus proyectos fuera de las carpetas de la lista de arriba.</li>
+        <li>Los archivos <code>.env</code> y las carpetas <code>.git</code>.</li>
+        <li>Tus archivos personales: documentos, fotos, descargas. Dentro de esas carpetas solo cuentan las carpetas de proyecto de la lista.</li>
+        <li>Bases de datos: Wayout no las busca ni las ofrece. La única forma de que se borre una es limpiar volúmenes de Docker, y eso se avisa antes.</li>
+      </ul>
+      <p>Además, el motor que borra rechaza estas rutas aunque le lleguen: tu carpeta de usuario, la raíz de una unidad (como <code>C:\</code>), <code>C:\Windows</code>, <code>C:\Program Files</code> y cualquier ruta que termine en <code>.env</code> o <code>.git</code>.</p>
+
+      <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-arrow-counter-clockwise"></i></span>Cómo borra</h2>
+      <p>Cada elemento de hasta 1 GB va a la papelera de Windows, desde donde lo puedes restaurar. Por encima de 1 GB se borra directo. Cada borrado se anota en <code>%LOCALAPPDATA%\Limpiador\limpieza.log</code>.</p>
+      <p>La revisión en segundo plano, si la activas, solo mide: nunca borra.</p>
+    </article>
+  </main>
+
+  <footer class="wrap">
+    <span>Wayout, una app de AVANC3.</span>
+    <a href="../">Qué es Wayout</a>
+    <a href="../privacidad/">Privacidad</a>
+    <a href="../terminos/">Términos</a>
+    <a href="../que-borra/">Qué borra y qué no</a>
+  </footer>
+</body>
+</html>

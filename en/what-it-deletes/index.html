@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What Wayout deletes and never touches</title>
+  <meta name="description" content="The full list of what Wayout offers to delete, what it only measures and what it refuses.">
+  <link rel="icon" href="../../img/isotipo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Red+Hat+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+  <link rel="stylesheet" href="../../estilo.css">
+</head>
+<body>
+  <header class="wrap top">
+    <a class="brand" href="../../">
+      <svg viewBox="0 0 560 560" aria-hidden="true"><path d="M361.29 138.579A200 200 0 1 0 361.29 421.421L219.869 280Z" fill="currentColor"/><path d="M540.131 280L398.71 138.579A200 200 0 0 0 398.71 421.421Z" fill="currentColor"/></svg>
+      Wayout
+    </a>
+    <a class="link" href="../../que-borra/" hreflang="es" lang="es">Español</a>
+  </header>
+
+  <main class="wrap">
+    <article class="doc rise">
+      <h1>What Wayout deletes and never touches</h1>
+      <p class="updated">Updated on October 18, 2026.</p>
+      <p>Wayout frees up space by deleting things that come back. This is the full list of what it offers to delete, what it only measures and what it refuses even when asked.</p>
+
+      <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-broom"></i></span>What it offers to delete</h2>
+      <ul>
+        <li>Tool caches: npm, pnpm, Yarn, Bun, pip, uv, Cargo, Gradle, Go, pub (Dart and Flutter), Playwright and Puppeteer browsers, HuggingFace, Ollama and LM Studio models, and the caches and extension installers of VS Code, Cursor and Antigravity.</li>
+        <li>Folders that regenerate inside your projects: <code>node_modules</code>, <code>.venv</code> and <code>venv</code>, <code>.next</code>, <code>.nuxt</code>, <code>.turbo</code>, <code>.svelte-kit</code>, <code>.angular</code> and <code>.parcel-cache</code>; <code>target</code> only next to a <code>Cargo.toml</code>, and <code>dist</code> or <code>build</code> only next to a <code>package.json</code>.</li>
+        <li>The contents of your temp folder (<code>%TEMP%</code>). Anything in use is skipped.</li>
+        <li>In Docker, with Docker's own clean-up commands: dangling images, build cache, stopped containers and unused volumes. The last two are marked "handle with care".</li>
+      </ul>
+      <p>Each row shows its size, when it was last used and how it comes back. Nothing is deleted until you see the list and confirm.</p>
+
+      <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-eye"></i></span>What it only measures</h2>
+      <ul>
+        <li>The WSL virtual disk, which grows and never shrinks on its own. Wayout gives you the command to compact it.</li>
+        <li>Android emulators, because they hold the apps and data you installed in them.</li>
+        <li>Development processes and open ports. Ending a process is optional and asks for confirmation.</li>
+      </ul>
+
+      <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-prohibit"></i></span>What it never touches</h2>
+      <ul>
+        <li>Your source code and any project file outside the folders listed above.</li>
+        <li><code>.env</code> files and <code>.git</code> folders.</li>
+        <li>Your personal files: documents, photos, downloads. Inside those folders only the listed project folders count.</li>
+        <li>Databases: Wayout does not look for them or offer them. The only way one can be deleted is by cleaning Docker volumes, and you are warned first.</li>
+      </ul>
+      <p>On top of that, the engine that deletes refuses these paths even if they reach it: your user folder, the root of a drive (such as <code>C:\</code>), <code>C:\Windows</code>, <code>C:\Program Files</code> and any path ending in <code>.env</code> or <code>.git</code>.</p>
+
+      <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-arrow-counter-clockwise"></i></span>How it deletes</h2>
+      <p>Each item up to 1 GB goes to the Windows Recycle Bin, where you can restore it. Above 1 GB it is deleted permanently. Every deletion is recorded in <code>%LOCALAPPDATA%\Limpiador\limpieza.log</code>.</p>
+      <p>The background check, if you turn it on, only measures: it never deletes.</p>
+    </article>
+  </main>
+
+  <footer class="wrap">
+    <span>Wayout, an AVANC3 app.</span>
+    <a href="../../">What Wayout is</a>
+    <a href="../../en/privacy/">Privacy</a>
+    <a href="../../en/terms/">Terms</a>
+    <a href="../../en/what-it-deletes/">What it deletes</a>
+  </footer>
+</body>
+</html>
