@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy</title>
-  <meta name="description" content="What Wayout stores on your computer and which connections it makes. No accounts, no personal data, no analytics.">
+  <meta name="description" content="What Wayout stores on your computer and which connections it makes. No accounts or personal data; anonymous statistics only if you accept.">
   <link rel="icon" href="../../img/isotipo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-floppy-disk"></i></span>What it stores on your computer</h2>
       <ul>
-        <li>Settings, in <code>%APPDATA%\pe.avanc3.wayout\settings.json</code>: whether the background check is on, the notification threshold, the language, the last measured figure and the folders it searches for projects.</li>
+        <li>Settings, in <code>%APPDATA%\pe.avanc3.wayout\settings.json</code>: whether the background check is on, the notification threshold, the language, the last measured figure, the folders it searches for projects and your answer about anonymous statistics.</li>
         <li>Window preferences (language, chosen folders, whether you saw the tour) and the last copy of the ads file, in the window's local storage inside <code>%LOCALAPPDATA%\pe.avanc3.wayout</code>.</li>
         <li>The clean-up log, in <code>%LOCALAPPDATA%\Limpiador\limpieza.log</code>: every deleted path with its size, the method (Recycle Bin or permanent delete) and the date.</li>
         <li>If you turn on "Open Wayout when you sign in to Windows", an entry in <code>HKCU\Software\Microsoft\Windows\CurrentVersion\Run</code>, removed when you turn it off.</li>
@@ -43,10 +43,21 @@
       <ul>
         <li>When it opens, it downloads <code>https://wayout.avanc3.pe/sponsor.json</code>, the file with the ads it shows. It is hosted on GitHub Pages. As with any website visit, the server receives your IP address and technical details of the request; the request carries no data about you or your computer.</li>
         <li>After measuring, it checks <code>https://github.com/kasbsquall/wayout-releases/releases/latest/download/latest.json</code> to find out whether a new version exists, at most once every 12 hours while the app is open. GitHub receives your IP address and technical details of the request; the request carries no data about you or your computer. If there is a new version, Wayout downloads and installs it only when you ask, and checks its signature first.</li>
+        <li>If you accept anonymous statistics, it sends to <code>eu.aptabase.com</code> what the next section describes.</li>
         <li>Banner images load from each advertiser's site (today, racknerd.com), which also receives your IP address.</li>
         <li>Clicking an ad or a help link opens it in your browser. Advertiser links may be affiliate links: they tell the advertiser the visit came from Wayout so it pays a commission if you buy, at no extra cost to you.</li>
       </ul>
-      <p>This version has no analytics or telemetry. If a future version adds them, it will ask you first and you will be able to turn them off in Settings.</p>
+
+      <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-chart-bar"></i></span>Anonymous statistics, only if you accept</h2>
+      <p>After your first scan, Wayout asks whether you want to share anonymous statistics. Nothing is sent until you accept, and you can change your answer any time in Settings. They tell us which tools to add to the catalog.</p>
+      <p>If you accept, after each scan and each clean-up you run in the window it sends:</p>
+      <ul>
+        <li>Which tools and folder types it found, only by their catalog name (for example npm, cargo or node_modules), how many GB each one takes and the total there was to free up.</li>
+        <li>For a clean-up, the GB freed, how many items were deleted and which blocks they came from (caches, projects or temp files).</li>
+        <li>The Wayout, Windows, WebView2 and Aptabase component versions, the Windows language and region (for example es-PE), the time of each event and a random session identifier that changes after 4 hours without use.</li>
+      </ul>
+      <p>It never sends paths, project names, your user name or the contents of your files. The background check sends nothing.</p>
+      <p>The statistics go to Aptabase, a service of Technov Solutions SRL (Romania) acting as data processor, in its European Union region (Germany). According to its privacy policy (updated July 24, 2026), it uses your IP address to compute an identifier that changes every day, without storing the IP, and it keeps the data for up to 5 years. According to its code, which is open source, it also records the approximate country and region the connection comes from (for example, Peru and Lima). Since nothing that is sent identifies you, neither Wayout nor Aptabase can find your data to delete it; to stop sending it, turn the option off in Settings.</p>
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-clock-clockwise"></i></span>The background check</h2>
       <p>If you turn it on, every 8 hours Wayout measures caches, project folders and temp files on your computer and, if they go over the threshold you chose, shows a Windows notification. The check deletes nothing and sends nothing.</p>

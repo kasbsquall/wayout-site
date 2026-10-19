@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacidad</title>
-  <meta name="description" content="Qué guarda Wayout en tu equipo y qué conexiones hace. Sin cuentas, sin datos personales, sin analítica.">
+  <meta name="description" content="Qué guarda Wayout en tu equipo y qué conexiones hace. Sin cuentas ni datos personales; estadísticas anónimas solo si aceptas.">
   <link rel="icon" href="../img/isotipo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-floppy-disk"></i></span>Lo que guarda en tu equipo</h2>
       <ul>
-        <li>La configuración, en <code>%APPDATA%\pe.avanc3.wayout\settings.json</code>: si la revisión en segundo plano está activa, el umbral de avisos, el idioma, la última cifra medida y las carpetas donde busca proyectos.</li>
+        <li>La configuración, en <code>%APPDATA%\pe.avanc3.wayout\settings.json</code>: si la revisión en segundo plano está activa, el umbral de avisos, el idioma, la última cifra medida, las carpetas donde busca proyectos y tu respuesta sobre las estadísticas anónimas.</li>
         <li>Las preferencias de la ventana (idioma, carpetas elegidas, si ya viste el recorrido) y la última copia del archivo de anuncios, en el almacenamiento local de la ventana, dentro de <code>%LOCALAPPDATA%\pe.avanc3.wayout</code>.</li>
         <li>El registro de limpieza, en <code>%LOCALAPPDATA%\Limpiador\limpieza.log</code>: cada ruta borrada con su tamaño, el método (papelera o borrado directo) y la fecha.</li>
         <li>Si activas "Abrir Wayout al iniciar sesión", una entrada en <code>HKCU\Software\Microsoft\Windows\CurrentVersion\Run</code>, que se quita al desactivarlo.</li>
@@ -43,10 +43,21 @@
       <ul>
         <li>Al abrirse descarga <code>https://wayout.avanc3.pe/sponsor.json</code>, el archivo con los anuncios que muestra. Está alojado en GitHub Pages. Como en cualquier visita a una web, el servidor recibe tu dirección IP y datos técnicos de la petición; la petición no lleva ningún dato tuyo ni de tu equipo.</li>
         <li>Después de medir consulta <code>https://github.com/kasbsquall/wayout-releases/releases/latest/download/latest.json</code> para saber si hay una versión nueva, como mucho una vez cada 12 horas mientras la app está abierta. GitHub recibe tu dirección IP y datos técnicos de la petición; la petición no lleva ningún dato tuyo ni de tu equipo. Si hay una versión nueva, Wayout la descarga e instala solo cuando tú se lo pides, y antes comprueba su firma.</li>
+        <li>Si aceptas las estadísticas anónimas, envía a <code>eu.aptabase.com</code> lo que se explica en la sección siguiente.</li>
         <li>Las imágenes de los banners se cargan desde el sitio de cada anunciante (hoy, racknerd.com), que también recibe tu dirección IP.</li>
         <li>Si haces clic en un anuncio o en un enlace de ayuda, se abre en tu navegador. Los enlaces de anunciantes pueden ser de afiliado: identifican a Wayout ante el anunciante para que pague una comisión si compras, sin coste extra para ti.</li>
       </ul>
-      <p>Esta versión no tiene analítica ni telemetría. Si una versión futura las incluye, te lo pedirá antes de activarlas y podrás apagarlas en Configuración.</p>
+
+      <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-chart-bar"></i></span>Estadísticas anónimas, solo si aceptas</h2>
+      <p>Después de tu primer escaneo, Wayout te pregunta si quieres compartir estadísticas anónimas. Mientras no aceptes no se envía nada, y puedes cambiar tu respuesta cuando quieras en Configuración. Sirven para saber qué herramientas añadir al catálogo.</p>
+      <p>Si aceptas, después de cada escaneo y de cada limpieza que haces en la ventana se envía:</p>
+      <ul>
+        <li>Qué herramientas y tipos de carpeta encontró, solo con su nombre del catálogo (por ejemplo npm, cargo o node_modules), cuántos GB ocupa cada uno y el total que había para liberar.</li>
+        <li>En una limpieza, los GB liberados, cuántos ítems se borraron y de qué bloques eran (cachés, proyectos o temporales).</li>
+        <li>La versión de Wayout, de Windows, de WebView2 y del componente de Aptabase, el idioma y la región de Windows (por ejemplo es-PE), la hora de cada evento y un identificador de sesión al azar que cambia tras 4 horas sin uso.</li>
+      </ul>
+      <p>Nunca se envían rutas, nombres de proyectos, tu nombre de usuario ni el contenido de tus archivos. La revisión en segundo plano no envía nada.</p>
+      <p>Las estadísticas las recibe Aptabase, un servicio de Technov Solutions SRL (Rumanía) que actúa como encargado del tratamiento, en su región de la Unión Europea (Alemania). Según su política de privacidad (actualizada el 24 de julio de 2026), con tu dirección IP calcula un identificador que cambia cada día, sin guardar la IP, y conserva los datos hasta 5 años. Según su código, que es abierto, también anota el país y la región aproximados desde donde llega la conexión (por ejemplo, Perú y Lima). Como nada de lo que se envía te identifica, ni Wayout ni Aptabase pueden encontrar tus datos para borrarlos; para dejar de enviarlos, apaga la opción en Configuración.</p>
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-clock-clockwise"></i></span>La revisión en segundo plano</h2>
       <p>Si la activas, cada 8 horas Wayout mide cachés, carpetas de proyectos y temporales en tu equipo y, si pasan del umbral que elegiste, muestra un aviso de Windows. La revisión no borra nada y no envía nada.</p>
