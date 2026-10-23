@@ -71,14 +71,14 @@
         <div class="dur"><b>7 días</b><span>Una semana</span></div>
         <button class="fare" type="button" data-tipo="normal" data-dias="7"></button>
         <button class="fare dest" type="button" data-tipo="destacado" data-dias="7"></button>
-        <div class="dur"><b>30 días</b><span>20 % menos por día</span></div>
+        <div class="dur"><b>30 días</b><span>Ahorras 20 %</span></div>
         <button class="fare" type="button" data-tipo="normal" data-dias="30"></button>
         <button class="fare dest" type="button" data-tipo="destacado" data-dias="30"></button>
-        <div class="dur"><b>90 días</b><span>Otro 20 % menos por día</span></div>
+        <div class="dur"><b>90 días</b><span>Ahorras 36 %</span></div>
         <button class="fare" type="button" data-tipo="normal" data-dias="90"></button>
         <button class="fare dest" type="button" data-tipo="destacado" data-dias="90"></button>
       </div>
-      <p class="board-note" id="board-note">Precios de lanzamiento en dólares, mientras Wayout no publique cifras de uso. Lo que pagas hoy no cambia aunque los precios suban.</p>
+      <p class="board-note" id="board-note">Pago único en dólares, sin renovación automática.</p>
     </section>
 
     <section class="block" aria-labelledby="h-rota">
@@ -88,7 +88,7 @@
           <li><span class="n" aria-hidden="true">01</span><b>Hay 4 cupos a la vez</b><p>Uno destacado y tres normales. Mientras dure tu plan, tu banner y tu fila están en todas las copias de Wayout.</p></li>
           <li><span class="n" aria-hidden="true">02</span><b>El destacado sale primero</b><p>Al abrir la app se ve su banner durante 15 segundos y su fila va arriba, resaltada. Cada normal se ve 8 segundos y luego pasa el siguiente.</p></li>
           <li><span class="n" aria-hidden="true">03</span><b>Si los cupos están llenos, entras en cuanto se libera uno</b><p>Antes de pagar te mostramos la fecha exacta de inicio y de fin. Tus días se cuentan desde ahí, ni uno menos.</p></li>
-          <li><span class="n" aria-hidden="true">04</span><b>Revisamos cada anuncio</b><p>Lo más pronto que sale es mañana: es el tiempo para revisarlo. Si no cumple las reglas, te devolvemos todo el pago.</p></li>
+          <li><span class="n" aria-hidden="true">04</span><b>Sale desde mañana</b><p>Lo revisamos antes de que salga. Si no cumple las reglas, te devolvemos todo el pago.</p></li>
         </ol>
         <div class="cycle" aria-hidden="true">
           <h3><span class="picto"><i class="ph-light ph-arrows-clockwise"></i></span>Una vuelta del carrusel</h3>
@@ -115,7 +115,8 @@
               <div class="plan-sum" id="plan-sum" aria-live="polite"><span>Elige un plan en el tablero de arriba.</span></div>
               <input type="hidden" name="tipo" id="f-tipo">
               <input type="hidden" name="dias" id="f-dias">
-              <div class="field">
+              <p class="start" id="start"><i class="ph-light ph-calendar-check" aria-hidden="true"></i><span id="start-txt">Sale desde mañana.</span> <button class="chg" type="button" id="otra-fecha">Elegir otra fecha</button></p>
+              <div class="field" id="campo-fecha" hidden>
                 <label for="f-fecha">Quiero empezar el</label>
                 <input type="date" name="fecha" id="f-fecha">
                 <span class="hint" id="fecha-hint">Si ese día no hay cupo, te damos el siguiente libre antes de pagar.</span>
@@ -142,7 +143,7 @@
               <div class="field">
                 <label for="f-url">Enlace al que lleva el anuncio</label>
                 <input type="url" name="url" id="f-url" maxlength="300" placeholder="https://tuproducto.com/?utm_source=wayout" required>
-                <span class="hint">Tiene que empezar con https://. Puedes agregar tu etiqueta de campaña para medir las visitas.</span>
+                <span class="hint">Tu página, con https://.</span>
                 <span class="err" data-err="url"></span>
               </div>
               <div class="field">
@@ -202,15 +203,15 @@
               <div class="field">
                 <label for="f-correo">Tu correo</label>
                 <input type="email" name="correo" id="f-correo" maxlength="120" autocomplete="email" required>
-                <span class="hint">Solo para escribirte sobre este anuncio. No lo publicamos ni lo usamos para otra cosa.</span>
+                <span class="hint">Ahí te llega la confirmación.</span>
                 <span class="err" data-err="correo"></span>
               </div>
-              <label class="check"><input type="checkbox" name="reglas" value="si" id="f-reglas"><span>Leí y acepto las <a href="#reglas">reglas para anunciar</a>. Entiendo que si mi anuncio no las cumple, se rechaza y me devuelven el pago.</span></label>
+              <label class="check"><input type="checkbox" name="reglas" value="si" id="f-reglas"><span>Acepto las <a href="#reglas">reglas para anunciar</a>.</span></label>
               <span class="err" data-err="reglas"></span>
               <div class="form-err" id="form-err" role="alert"></div>
               <div class="send">
                 <button class="btn primary" type="submit" id="enviar"><i class="ph-light ph-calendar-check" aria-hidden="true"></i>Ver fechas y pagar</button>
-                <span class="fine">Todavía no se cobra nada. Primero ves las fechas y el total.</span>
+                <span class="fine">Primero ves tus fechas y el total.</span>
               </div>
             </div>
           </section>
@@ -254,18 +255,18 @@
             <li><i class="ph-light ph-check" aria-hidden="true"></i>Revisamos cada anuncio antes de su fecha. Si no cumple, se rechaza y te devolvemos el 100 % por PayPal.</li>
             <li><i class="ph-light ph-check" aria-hidden="true"></i>Si hay que retirarlo cuando ya está en pantalla, te devolvemos los días que faltaban.</li>
             <li><i class="ph-light ph-check" aria-hidden="true"></i>Tus días corren desde la fecha confirmada. Para cambiar el texto o el banner, escríbenos.</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Wayout todavía no publica cifras de uso, así que no garantizamos un número de vistas ni de clics.</li>
           </ul>
         </div>
       </div>
+      <p class="legal">El anuncio se muestra en las copias de Wayout abiertas durante tus fechas; no se garantiza un número de vistas ni de clics.</p>
     </section>
 
     <section class="block" aria-labelledby="h-preguntas">
       <h2 id="h-preguntas">Preguntas</h2>
       <div class="faq">
         <details>
-          <summary><span class="picto" aria-hidden="true"><i class="ph-light ph-users"></i></span>¿Cuánta gente lo va a ver?<i class="ph-light ph-plus tog" aria-hidden="true"></i></summary>
-          <div class="ans"><p>Wayout acaba de salir en la Microsoft Store y todavía no tiene cifras públicas de uso. Por eso los precios son de lanzamiento. Cuando haya cifras, las publicamos aquí.</p></div>
+          <summary><span class="picto" aria-hidden="true"><i class="ph-light ph-users"></i></span>¿Quién ve mi anuncio?<i class="ph-light ph-plus tog" aria-hidden="true"></i></summary>
+          <div class="ans"><p>Personas que programan y usan Wayout para liberar el espacio que les comen sus herramientas de desarrollo. Tu banner queda a la vista todo el tiempo que la app está abierta, en español y en inglés.</p></div>
         </details>
         <details>
           <summary><span class="picto" aria-hidden="true"><i class="ph-light ph-credit-card"></i></span>¿Cómo pago?<i class="ph-light ph-plus tog" aria-hidden="true"></i></summary>

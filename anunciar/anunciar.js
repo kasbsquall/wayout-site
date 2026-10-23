@@ -9,7 +9,6 @@
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const fecha = (iso) => { const [y, m, d] = iso.split("-").map(Number); return `${d} ${MESES[m - 1]} ${y}`; };
   const corta = (iso) => { const [, m, d] = iso.split("-").map(Number); return `${d} ${MESES[m - 1]}`; };
-  const usd = (n) => (Number.isInteger(n) ? String(n) : n.toFixed(2).replace(".", ","));
   const LIMITES = { marca: 40, categoria: 20, titular: 50, frase: 120, boton: 18, en_titular: 50, en_frase: 120, en_boton: 18 };
 
   const form = $("#form");
@@ -36,7 +35,6 @@
       b.setAttribute("aria-pressed", String(!!sel && sel.tipo === tipo && sel.dias === dias));
       b.setAttribute("aria-label", `${tipo === "destacado" ? "Destacado" : "Normal"}, ${dias} días, ${precio} dólares, empieza el ${fecha(desde)}`);
       b.innerHTML = `<span class="amt">${precio}<small>USD</small></span><i class="ph-light ph-arrow-right go" aria-hidden="true"></i>
-        <span class="per">${usd(Math.round((precio / dias) * 100) / 100)} USD por día</span>
         <span class="from"><i class="ph-light ${libre ? "ph-calendar-check" : "ph-hourglass-medium"}" aria-hidden="true"></i>${libre ? "Sale desde mañana" : `Cupo libre desde el ${corta(desde)}`}</span>`;
     }
   }
@@ -47,6 +45,7 @@
       const r = await fetch(`${API}/api/anuncios/config`, { cache: "no-store" });
       if (!r.ok) throw new Error(String(r.status));
       cfg = await r.json();
+      sel = sel ?? { tipo: "normal", dias: 7 };
       pintarTablero();
       const f = $("#f-fecha");
       f.min = cfg.primerDia;
@@ -91,11 +90,23 @@
       <a class="chg" href="#planes">Cambiar</a>`;
     const f = $("#f-fecha");
     if (f.value < desde) f.value = desde;
+    pintarInicio();
     $("#fecha-hint").textContent = desde === cfg.primerDia
       ? "Lo más pronto es mañana, para revisar tu anuncio. Si eliges un día sin cupo, te damos el siguiente libre antes de pagar."
       : `Con este plan el primer cupo libre es el ${fecha(desde)}. Si eliges otro día sin cupo, te damos el siguiente libre antes de pagar.`;
     pintarVista();
   }
+
+  function pintarInicio() {
+    const v = $("#f-fecha").value;
+    $("#start-txt").textContent = !cfg || !v || v === cfg.primerDia ? "Sale desde mañana." : `Sale el ${fecha(v)}.`;
+  }
+
+  $("#otra-fecha").addEventListener("click", () => {
+    $("#campo-fecha").hidden = false;
+    $("#start").hidden = true;
+    $("#f-fecha").focus();
+  });
 
   // ---------- Vista previa y contadores ----------
 
