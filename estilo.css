@@ -63,7 +63,7 @@ i.ph-light { line-height: 1; }
 .hero { padding: 72px 0 96px; }
 .hero h1 { font-size: clamp(44px, 7.2vw, 96px); font-weight: 700; line-height: .9; letter-spacing: -.04em; max-width: 14ch; }
 .hero .lead { margin-top: 28px; max-width: var(--measure); font-size: clamp(17px, 1.4vw, 20px); line-height: 1.4; }
-.hero .acts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 36px; }
+.hero .acts { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 36px; }
 .hero .fine { margin-top: 14px; font-size: 13px; color: var(--ink-2); }
 .sys { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: 16px; }
 .sys .picto { width: 32px; height: 32px; font-size: 20px; }
@@ -126,6 +126,19 @@ footer { padding: 40px 0 48px; font-size: 13px; color: var(--ink-2); display: fl
 .doc li + li { margin-top: 6px; }
 .doc code { font-family: var(--mono); font-size: 14px; overflow-wrap: anywhere; }
 
+/* Preguntas: filas como las de "Qué mide", abiertas con un clic. */
+.faq { max-width: 880px; border-bottom: 1px solid var(--line-strong); }
+.faq details { border-top: 1px solid var(--line-strong); }
+.faq summary { display: grid; grid-template-columns: 28px 1fr 20px; align-items: center; gap: 14px; padding: 18px 0; font-size: 18px; font-weight: 700; letter-spacing: -.01em; cursor: pointer; list-style: none; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary:hover { color: var(--ink-hover); }
+.faq .tog { font-size: 20px; transition: transform 160ms var(--ease-in); }
+.faq details[open] .tog { transform: rotate(45deg); }
+.faq .ans { padding: 0 0 22px 42px; display: grid; gap: 10px; }
+.faq .ans p { font-size: 15px; color: var(--ink-2); max-width: var(--measure); }
+.faq .ans a { color: var(--ink); font-weight: 600; }
+.faq code { justify-self: start; max-width: 100%; overflow-wrap: anywhere; font-family: var(--mono); font-size: 14px; background: var(--ivory); padding: 8px 12px; border-radius: 2px; }
+
 /* Entrada: una sola coreografía, bloques en escalera, bajo 300 ms. */
 .rise { animation: rise 260ms var(--ease-in) both; animation-delay: calc(var(--i, 0) * 60ms); }
 @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
@@ -143,5 +156,5 @@ footer { padding: 40px 0 48px; font-size: 13px; color: var(--ink-2); display: fl
 
 @media (prefers-reduced-motion: reduce) {
   .rise { animation: none; }
-  .btn { transition: none; }
+  .btn, .faq .tog { transition: none; }
 }

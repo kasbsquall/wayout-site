@@ -26,9 +26,10 @@
       <h1 class="rise" style="--i:0">Lo que sobra de programar con IA, fuera del disco.</h1>
       <p class="lead rise" style="--i:1">Wayout mide cuánto ocupan las cachés de npm, pip, uv y Gradle, las carpetas node_modules y target de proyectos que ya no tocas, los temporales, Docker y el disco de WSL. Te enseña la lista, con lo que se recupera cada cosa y con qué comando, y limpia solo lo que marcas.</p>
       <div class="acts rise" style="--i:2">
+        <a class="btn primary" href="https://apps.microsoft.com/detail/9NDQW74M2HRJ?mode=direct"><i class="ph-light ph-storefront" aria-hidden="true"></i>Instalar desde Microsoft Store</a>
         <span class="sys"><span class="picto" aria-hidden="true"><i class="ph-light ph-windows-logo"></i></span>Windows 10 y 11, gratis, sin cuenta</span>
       </div>
-      <p class="fine rise" style="--i:3">Versión 0.1 en pruebas. La descarga pública se abre cuando el instalador esté firmado.</p>
+      <p class="fine rise" style="--i:3">Desde la Store llega firmada por Microsoft, sin avisos de Windows, y se actualiza sola.</p>
     </section>
 
     <section class="block" aria-labelledby="h-que">
@@ -54,6 +55,33 @@
         <div class="rise" style="--i:2"><span class="picto" aria-hidden="true"><i class="ph-light ph-trash"></i></span><b>Papelera primero</b><p>Hasta 1 GB va a la papelera de Windows y se puede restaurar. Por encima se borra directo, y la app lo avisa antes.</p></div>
         <div class="rise" style="--i:3"><span class="picto" aria-hidden="true"><i class="ph-light ph-code"></i></span><b>Tu código no se toca</b><p>Solo cachés y carpetas regenerables. Código fuente, .env, .git y bases de datos quedan fuera siempre.</p></div>
         <div class="rise" style="--i:4"><span class="picto" aria-hidden="true"><i class="ph-light ph-megaphone"></i></span><b>Gratis, con patrocinio</b><p>La app se sostiene con un banner y un panel de patrocinadores. Solo imagen y enlace, sin rastreadores. <a href="anunciar/">Cómo anunciarse</a>.</p></div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-preguntas">
+      <h2 id="h-preguntas">Preguntas</h2>
+      <div class="faq">
+        <details>
+          <summary><span class="picto" aria-hidden="true"><i class="ph-light ph-terminal-window"></i></span>¿Se puede instalar desde la terminal?<i class="ph-light ph-plus tog" aria-hidden="true"></i></summary>
+          <div class="ans">
+            <p>Sí, con winget, que instala la misma versión de la Store:</p>
+            <code>winget install 9NDQW74M2HRJ -s msstore</code>
+          </div>
+        </details>
+        <details id="sin-store">
+          <summary><span class="picto" aria-hidden="true"><i class="ph-light ph-download-simple"></i></span>¿Y si no puedo usar la Microsoft Store?<i class="ph-light ph-plus tog" aria-hidden="true"></i></summary>
+          <div class="ans">
+            <p>Hay un instalador aparte en GitHub. No lleva firma de pago, así que Windows muestra el aviso de SmartScreen: entra en "Más información" y luego en "Ejecutar de todas formas". Si tu equipo tiene activo el Control inteligente de aplicaciones, Windows no lo deja abrir y la vía es la Store.</p>
+            <p>Instala solo una de las dos versiones. Si conviven, abrir una solo trae al frente la otra.</p>
+            <p><a href="https://github.com/kasbsquall/wayout-releases/releases/latest">Descargar el instalador desde GitHub</a></p>
+          </div>
+        </details>
+        <details>
+          <summary><span class="picto" aria-hidden="true"><i class="ph-light ph-arrows-clockwise"></i></span>¿Cómo se actualiza?<i class="ph-light ph-plus tog" aria-hidden="true"></i></summary>
+          <div class="ans">
+            <p>La versión de la Store se actualiza sola, como cualquier app de la Store. La del instalador avisa cuando hay una versión nueva y la descarga desde GitHub solo si tú lo pides, comprobando antes su firma.</p>
+          </div>
+        </details>
       </div>
     </section>
   </main>

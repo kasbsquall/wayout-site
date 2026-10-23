@@ -24,7 +24,7 @@
   <main class="wrap">
     <article class="doc rise">
       <h1>What Wayout deletes and never touches</h1>
-      <p class="updated">Updated on October 18, 2026.</p>
+      <p class="updated">Updated on October 19, 2026.</p>
       <p>Wayout frees up space by deleting things that come back. This is the full list of what it offers to delete, what it only measures and what it refuses even when asked.</p>
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-broom"></i></span>What it offers to delete</h2>
@@ -35,6 +35,7 @@
         <li>In Docker, with Docker's own clean-up commands: dangling images, build cache, stopped containers and unused volumes. The last two are marked "handle with care".</li>
       </ul>
       <p>Each row shows its size, when it was last used and how it comes back. Nothing is deleted until you see the list and confirm.</p>
+      <p>A <code>dist</code> or <code>build</code> folder that git does not ignore, or in a project without git, may be part of the project, and a Python environment with no <code>requirements.txt</code>, <code>pyproject.toml</code> or other dependency file cannot be recreated. Wayout shows them as "handle with care", with the reason, and never includes them in "Select what is safe".</p>
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-eye"></i></span>What it only measures</h2>
       <ul>
@@ -50,10 +51,10 @@
         <li>Your personal files: documents, photos, downloads. Inside those folders only the listed project folders count.</li>
         <li>Databases: Wayout does not look for them or offer them. The only way one can be deleted is by cleaning Docker volumes, and you are warned first.</li>
       </ul>
-      <p>On top of that, the engine that deletes refuses these paths even if they reach it: your user folder, the root of a drive (such as <code>C:\</code>), <code>C:\Windows</code>, <code>C:\Program Files</code> and any path ending in <code>.env</code> or <code>.git</code>.</p>
+      <p>On top of that, the engine that deletes refuses these paths even if they reach it: your user folder, the root of a drive (such as <code>C:\</code>), <code>C:\Windows</code>, <code>C:\Program Files</code> and any path ending in <code>.env</code> or <code>.git</code>. And it only deletes paths that appeared in the last scan: it refuses any other.</p>
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-arrow-counter-clockwise"></i></span>How it deletes</h2>
-      <p>Each item up to 1 GB goes to the Windows Recycle Bin, where you can restore it. Above 1 GB it is deleted permanently. Every deletion is recorded in <code>%LOCALAPPDATA%\Limpiador\limpieza.log</code>.</p>
+      <p>Each item up to 1 GB goes to the Windows Recycle Bin, where you can restore it. Above 1 GB it is deleted permanently. Every deletion is recorded in <code>%LOCALAPPDATA%\Limpiador\limpieza.log</code> (in the Microsoft Store version, inside the package folder; the app's clean-up log shows the path).</p>
       <p>The background check, if you turn it on, only measures: it never deletes.</p>
     </article>
   </main>

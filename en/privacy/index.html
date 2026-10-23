@@ -24,7 +24,7 @@
   <main class="wrap">
     <article class="doc rise">
       <h1>Privacy</h1>
-      <p class="updated">Updated on October 18, 2026.</p>
+      <p class="updated">Updated on October 19, 2026.</p>
       <p>Wayout is a Windows desktop app that measures and cleans the junk software development leaves behind. It runs on your computer, has no accounts and asks for no personal data. This page lists everything it stores on your computer and every connection it makes.</p>
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-hard-drives"></i></span>What it scans stays on your computer</h2>
@@ -35,6 +35,7 @@
         <li>Settings, in <code>%APPDATA%\pe.avanc3.wayout\settings.json</code>: whether the background check is on, the notification threshold, the language, the last measured figure, the folders it searches for projects and your answer about anonymous statistics.</li>
         <li>Window preferences (language, chosen folders, whether you saw the tour) and the last copy of the ads file, in the window's local storage inside <code>%LOCALAPPDATA%\pe.avanc3.wayout</code>.</li>
         <li>The clean-up log, in <code>%LOCALAPPDATA%\Limpiador\limpieza.log</code>: every deleted path with its size, the method (Recycle Bin or permanent delete) and the date.</li>
+        <li>The error log, <code>errores.log</code>, next to the clean-up log: technical messages from the app itself when something fails, in case you want to send them when reporting a problem. It stays on your computer and Wayout never sends it. If it is over 512 KB when Wayout opens, it is kept as <code>errores.log.old</code> and a new one starts.</li>
         <li>If you turn on "Open Wayout when you sign in to Windows", an entry in <code>HKCU\Software\Microsoft\Windows\CurrentVersion\Run</code>, removed when you turn it off.</li>
       </ul>
       <p>To remove all of this, uninstall Wayout and delete those folders.</p>
@@ -44,7 +45,7 @@
         <li>When it opens, it downloads <code>https://wayout.avanc3.pe/sponsor.json</code>, the file with the ads it shows. It is hosted on GitHub Pages. As with any website visit, the server receives your IP address and technical details of the request; the request carries no data about you or your computer.</li>
         <li>After measuring, it checks <code>https://github.com/kasbsquall/wayout-releases/releases/latest/download/latest.json</code> to find out whether a new version exists, at most once every 12 hours while the app is open. GitHub receives your IP address and technical details of the request; the request carries no data about you or your computer. If there is a new version, Wayout downloads and installs it only when you ask, and checks its signature first.</li>
         <li>If you accept anonymous statistics, it sends to <code>eu.aptabase.com</code> what the next section describes.</li>
-        <li>Banner images load from each advertiser's site (today, racknerd.com), which also receives your IP address.</li>
+        <li>Banner images are served from this same site (<code>wayout.avanc3.pe</code>) and not from the advertiser's, so no advertiser receives your IP address unless you click.</li>
         <li>Clicking an ad or a help link opens it in your browser. Advertiser links may be affiliate links: they tell the advertiser the visit came from Wayout so it pays a commission if you buy, at no extra cost to you.</li>
       </ul>
 
@@ -63,7 +64,16 @@
       <p>If you turn it on, every 8 hours Wayout measures caches, project folders and temp files on your computer and, if they go over the threshold you chose, shows a Windows notification. The check deletes nothing and sends nothing.</p>
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-plugs-connected"></i></span>If you connect it to an AI assistant</h2>
-      <p>Wayout includes <code>wayout-mcp.exe</code>, an MCP server for coding assistants such as Claude Code. It does nothing on its own: it only works if you register it in your assistant. When the assistant queries it, it hands over the paths, sizes, dates and project names it measures, and the assistant may send them to the AI service you use, under that service's privacy rules. The server deletes nothing, shows no ads and makes no connections of its own.</p>
+      <p>Wayout includes an MCP server for coding assistants such as Claude Code. It does nothing on its own: it only works if you register it in your assistant. When the assistant queries it, it hands over the paths, sizes, dates and project names it measures, and the assistant may send them to the AI service you use, under that service's privacy rules. The server deletes nothing, shows no ads and makes no connections of its own.</p>
+
+      <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-storefront"></i></span>If you installed it from the Microsoft Store</h2>
+      <p>The Microsoft Store version stores the same things and makes the same connections, with three differences:</p>
+      <ul>
+        <li>Everything it stores stays inside the package folder, in <code>%LOCALAPPDATA%\Packages</code>: settings and the clean-up log go in its <code>LocalState</code> folder, whose exact path Settings and the clean-up log show. Windows deletes all of it when you uninstall.</li>
+        <li>It does not check GitHub for new versions: updates come through the Store.</li>
+        <li>"Open Wayout when you sign in to Windows" is a Windows startup task instead of the registry entry. You can also see and change it in Task Manager, under Startup apps.</li>
+      </ul>
+      <p>Downloading and installing from the Store are covered by Microsoft's terms and privacy policy.</p>
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-envelope-simple"></i></span>Contact</h2>
       <p>Wayout is an app by AVANC3, the trade name of Kevin Soto (Peru). For questions about this policy, write to <a href="mailto:kevin2005_10@hotmail.com">kevin2005_10@hotmail.com</a>. If the policy changes, the date above is updated.</p>

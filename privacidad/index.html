@@ -24,7 +24,7 @@
   <main class="wrap">
     <article class="doc rise">
       <h1>Privacidad</h1>
-      <p class="updated">Actualizado el 18 de octubre de 2026.</p>
+      <p class="updated">Actualizado el 19 de octubre de 2026.</p>
       <p>Wayout es una app de escritorio para Windows que mide y limpia la basura que deja el desarrollo de software. Funciona en tu equipo, no tiene cuentas y no te pide datos personales. Aquí está todo lo que guarda en tu equipo y cada conexión que hace.</p>
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-hard-drives"></i></span>Lo que analiza se queda en tu equipo</h2>
@@ -35,6 +35,7 @@
         <li>La configuración, en <code>%APPDATA%\pe.avanc3.wayout\settings.json</code>: si la revisión en segundo plano está activa, el umbral de avisos, el idioma, la última cifra medida, las carpetas donde busca proyectos y tu respuesta sobre las estadísticas anónimas.</li>
         <li>Las preferencias de la ventana (idioma, carpetas elegidas, si ya viste el recorrido) y la última copia del archivo de anuncios, en el almacenamiento local de la ventana, dentro de <code>%LOCALAPPDATA%\pe.avanc3.wayout</code>.</li>
         <li>El registro de limpieza, en <code>%LOCALAPPDATA%\Limpiador\limpieza.log</code>: cada ruta borrada con su tamaño, el método (papelera o borrado directo) y la fecha.</li>
+        <li>El registro de errores, <code>errores.log</code>, junto al registro de limpieza: mensajes técnicos de la propia app cuando algo falla, por si quieres enviarlos al reportar un problema. Se queda en tu equipo y Wayout nunca lo envía. Si al abrir Wayout pasa de 512 KB, se guarda como <code>errores.log.old</code> y empieza uno nuevo.</li>
         <li>Si activas "Abrir Wayout al iniciar sesión", una entrada en <code>HKCU\Software\Microsoft\Windows\CurrentVersion\Run</code>, que se quita al desactivarlo.</li>
       </ul>
       <p>Para quitar todo esto basta con desinstalar Wayout y eliminar esas carpetas.</p>
@@ -44,7 +45,7 @@
         <li>Al abrirse descarga <code>https://wayout.avanc3.pe/sponsor.json</code>, el archivo con los anuncios que muestra. Está alojado en GitHub Pages. Como en cualquier visita a una web, el servidor recibe tu dirección IP y datos técnicos de la petición; la petición no lleva ningún dato tuyo ni de tu equipo.</li>
         <li>Después de medir consulta <code>https://github.com/kasbsquall/wayout-releases/releases/latest/download/latest.json</code> para saber si hay una versión nueva, como mucho una vez cada 12 horas mientras la app está abierta. GitHub recibe tu dirección IP y datos técnicos de la petición; la petición no lleva ningún dato tuyo ni de tu equipo. Si hay una versión nueva, Wayout la descarga e instala solo cuando tú se lo pides, y antes comprueba su firma.</li>
         <li>Si aceptas las estadísticas anónimas, envía a <code>eu.aptabase.com</code> lo que se explica en la sección siguiente.</li>
-        <li>Las imágenes de los banners se cargan desde el sitio de cada anunciante (hoy, racknerd.com), que también recibe tu dirección IP.</li>
+        <li>Las imágenes de los banners se sirven desde este mismo sitio (<code>wayout.avanc3.pe</code>) y no desde el del anunciante, así que ningún anunciante recibe tu dirección IP mientras no hagas clic.</li>
         <li>Si haces clic en un anuncio o en un enlace de ayuda, se abre en tu navegador. Los enlaces de anunciantes pueden ser de afiliado: identifican a Wayout ante el anunciante para que pague una comisión si compras, sin coste extra para ti.</li>
       </ul>
 
@@ -63,7 +64,16 @@
       <p>Si la activas, cada 8 horas Wayout mide cachés, carpetas de proyectos y temporales en tu equipo y, si pasan del umbral que elegiste, muestra un aviso de Windows. La revisión no borra nada y no envía nada.</p>
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-plugs-connected"></i></span>Si lo conectas a un asistente de IA</h2>
-      <p>Wayout incluye <code>wayout-mcp.exe</code>, un servidor MCP para asistentes de programación como Claude Code. No hace nada por su cuenta: solo funciona si tú lo registras en tu asistente. Cuando el asistente lo consulta, le entrega las rutas, tamaños, fechas y nombres de proyectos que mide, y el asistente puede enviarlos al servicio de IA que uses, bajo las reglas de privacidad de ese servicio. El servidor no borra nada, no muestra anuncios y no hace conexiones propias.</p>
+      <p>Wayout incluye un servidor MCP para asistentes de programación como Claude Code. No hace nada por su cuenta: solo funciona si tú lo registras en tu asistente. Cuando el asistente lo consulta, le entrega las rutas, tamaños, fechas y nombres de proyectos que mide, y el asistente puede enviarlos al servicio de IA que uses, bajo las reglas de privacidad de ese servicio. El servidor no borra nada, no muestra anuncios y no hace conexiones propias.</p>
+
+      <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-storefront"></i></span>Si lo instalaste desde la Microsoft Store</h2>
+      <p>La versión de la Microsoft Store guarda lo mismo y hace las mismas conexiones, con tres diferencias:</p>
+      <ul>
+        <li>Todo lo que guarda queda dentro de la carpeta del paquete, en <code>%LOCALAPPDATA%\Packages</code>: la configuración y el registro de limpieza, en su carpeta <code>LocalState</code>, cuya ruta exacta muestran Configuración y el registro de limpieza. Windows lo borra todo al desinstalar.</li>
+        <li>No consulta GitHub para buscar versiones nuevas: las actualizaciones llegan por la Store.</li>
+        <li>"Abrir Wayout al iniciar sesión" es una tarea de inicio de Windows en vez de la entrada del registro. También se ve y se cambia en el Administrador de tareas, en Aplicaciones de arranque.</li>
+      </ul>
+      <p>La descarga y la instalación desde la Store se rigen por los términos y la política de privacidad de Microsoft.</p>
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-envelope-simple"></i></span>Contacto</h2>
       <p>Wayout es una app de AVANC3, nombre comercial de Kevin Soto (Perú). Para preguntas sobre esta política, escribe a <a href="mailto:kevin2005_10@hotmail.com">kevin2005_10@hotmail.com</a>. Si la política cambia, se actualiza la fecha de arriba.</p>

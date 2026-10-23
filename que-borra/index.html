@@ -24,7 +24,7 @@
   <main class="wrap">
     <article class="doc rise">
       <h1>Qué borra Wayout y qué nunca toca</h1>
-      <p class="updated">Actualizado el 18 de octubre de 2026.</p>
+      <p class="updated">Actualizado el 19 de octubre de 2026.</p>
       <p>Wayout libera espacio borrando cosas que se vuelven a crear. Esta es la lista completa de lo que ofrece borrar, lo que solo mide y lo que rechaza aunque se lo pidan.</p>
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-broom"></i></span>Lo que ofrece borrar</h2>
@@ -35,6 +35,7 @@
         <li>En Docker, con sus propios comandos de limpieza: imágenes colgadas, caché de construcción, contenedores parados y volúmenes sin uso. Los dos últimos van marcados "con cuidado".</li>
       </ul>
       <p>Cada fila dice cuánto pesa, cuándo se usó por última vez y cómo se recupera. Nada se borra sin que veas la lista y confirmes.</p>
+      <p>Un <code>dist</code> o <code>build</code> que git no ignora, o en un proyecto sin git, puede ser parte del proyecto, y un entorno de Python sin <code>requirements.txt</code>, <code>pyproject.toml</code> ni otro archivo de dependencias no se puede volver a crear. Wayout los muestra como "con cuidado", con el motivo, y nunca los incluye en "Marcar lo seguro".</p>
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-eye"></i></span>Lo que solo mide</h2>
       <ul>
@@ -50,10 +51,10 @@
         <li>Tus archivos personales: documentos, fotos, descargas. Dentro de esas carpetas solo cuentan las carpetas de proyecto de la lista.</li>
         <li>Bases de datos: Wayout no las busca ni las ofrece. La única forma de que se borre una es limpiar volúmenes de Docker, y eso se avisa antes.</li>
       </ul>
-      <p>Además, el motor que borra rechaza estas rutas aunque le lleguen: tu carpeta de usuario, la raíz de una unidad (como <code>C:\</code>), <code>C:\Windows</code>, <code>C:\Program Files</code> y cualquier ruta que termine en <code>.env</code> o <code>.git</code>.</p>
+      <p>Además, el motor que borra rechaza estas rutas aunque le lleguen: tu carpeta de usuario, la raíz de una unidad (como <code>C:\</code>), <code>C:\Windows</code>, <code>C:\Program Files</code> y cualquier ruta que termine en <code>.env</code> o <code>.git</code>. Y solo borra rutas que salieron en el último escaneo: cualquier otra la rechaza.</p>
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-arrow-counter-clockwise"></i></span>Cómo borra</h2>
-      <p>Cada elemento de hasta 1 GB va a la papelera de Windows, desde donde lo puedes restaurar. Por encima de 1 GB se borra directo. Cada borrado se anota en <code>%LOCALAPPDATA%\Limpiador\limpieza.log</code>.</p>
+      <p>Cada elemento de hasta 1 GB va a la papelera de Windows, desde donde lo puedes restaurar. Por encima de 1 GB se borra directo. Cada borrado se anota en <code>%LOCALAPPDATA%\Limpiador\limpieza.log</code> (en la versión de la Microsoft Store, dentro de la carpeta del paquete; el registro de limpieza de la app muestra la ruta).</p>
       <p>La revisión en segundo plano, si la activas, solo mide: nunca borra.</p>
     </article>
   </main>
