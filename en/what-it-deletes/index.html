@@ -24,7 +24,7 @@
   <main class="wrap">
     <article class="doc rise">
       <h1>What Wayout deletes and never touches</h1>
-      <p class="updated">Updated on October 19, 2026.</p>
+      <p class="updated">Updated on October 23, 2026.</p>
       <p>Wayout frees up space by deleting things that come back. This is the full list of what it offers to delete, what it only measures and what it refuses even when asked.</p>
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-broom"></i></span>What it offers to delete</h2>
@@ -54,7 +54,7 @@
       <p>On top of that, the engine that deletes refuses these paths even if they reach it: your user folder, the root of a drive (such as <code>C:\</code>), <code>C:\Windows</code>, <code>C:\Program Files</code> and any path ending in <code>.env</code> or <code>.git</code>. And it only deletes paths that appeared in the last scan: it refuses any other.</p>
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-arrow-counter-clockwise"></i></span>How it deletes</h2>
-      <p>Each item up to 1 GB goes to the Windows Recycle Bin, where you can restore it. Above 1 GB it is deleted permanently. Every deletion is recorded in <code>%LOCALAPPDATA%\Limpiador\limpieza.log</code> (in the Microsoft Store version, inside the package folder; the app's clean-up log shows the path).</p>
+      <p>Anything that comes back is deleted permanently: the space frees up right away and nothing goes to the Recycle Bin. Anything the app marks "handle with care" goes to the Windows Recycle Bin, where you can restore it, if it is 1 GB or less; above that it is deleted permanently, and the confirmation flags it in red. If you turn on "Send to the Recycle Bin" in Settings, everything up to 1 GB goes to the Recycle Bin. If the Recycle Bin refuses something, Wayout leaves it in place. Every deletion is recorded in <code>%LOCALAPPDATA%\Limpiador\limpieza.log</code> (in the Microsoft Store version, inside the package folder; the app's clean-up log shows the path).</p>
       <p>The background check, if you turn it on, only measures: it never deletes.</p>
     </article>
   </main>

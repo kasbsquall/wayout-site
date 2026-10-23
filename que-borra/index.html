@@ -24,7 +24,7 @@
   <main class="wrap">
     <article class="doc rise">
       <h1>Qué borra Wayout y qué nunca toca</h1>
-      <p class="updated">Actualizado el 19 de octubre de 2026.</p>
+      <p class="updated">Actualizado el 23 de octubre de 2026.</p>
       <p>Wayout libera espacio borrando cosas que se vuelven a crear. Esta es la lista completa de lo que ofrece borrar, lo que solo mide y lo que rechaza aunque se lo pidan.</p>
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-broom"></i></span>Lo que ofrece borrar</h2>
@@ -54,7 +54,7 @@
       <p>Además, el motor que borra rechaza estas rutas aunque le lleguen: tu carpeta de usuario, la raíz de una unidad (como <code>C:\</code>), <code>C:\Windows</code>, <code>C:\Program Files</code> y cualquier ruta que termine en <code>.env</code> o <code>.git</code>. Y solo borra rutas que salieron en el último escaneo: cualquier otra la rechaza.</p>
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-arrow-counter-clockwise"></i></span>Cómo borra</h2>
-      <p>Cada elemento de hasta 1 GB va a la papelera de Windows, desde donde lo puedes restaurar. Por encima de 1 GB se borra directo. Cada borrado se anota en <code>%LOCALAPPDATA%\Limpiador\limpieza.log</code> (en la versión de la Microsoft Store, dentro de la carpeta del paquete; el registro de limpieza de la app muestra la ruta).</p>
+      <p>Lo que se regenera se borra directo: el espacio se libera al momento y no pasa por la papelera. Lo que la app marca "con cuidado" va a la papelera de Windows, desde donde lo puedes restaurar, si pesa hasta 1 GB; por encima se borra directo, y la confirmación lo avisa en rojo. Si activas "Enviar a la papelera" en Configuración, todo lo que pese hasta 1 GB va a la papelera. Si la papelera no acepta algo, Wayout no lo borra. Cada borrado se anota en <code>%LOCALAPPDATA%\Limpiador\limpieza.log</code> (en la versión de la Microsoft Store, dentro de la carpeta del paquete; el registro de limpieza de la app muestra la ruta).</p>
       <p>La revisión en segundo plano, si la activas, solo mide: nunca borra.</p>
     </article>
   </main>
