@@ -6,7 +6,7 @@
       "label": "Advertise on Wayout"
     }
   },
-  "disclosure": "Enlaces de afiliado: Wayout recibe una comisión y a ti te cuesta lo mismo.",
+  "disclosure": "",
   "spots": [
     {
       "id": "racknerd-vps",
@@ -55,6 +55,6 @@
     ]
   },
   "en": {
-    "disclosure": "Affiliate links: Wayout earns a commission and it costs you the same."
+    "disclosure": ""
   }
 }
