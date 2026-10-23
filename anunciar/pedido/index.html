@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="referrer" content="no-referrer">
+  <title>Tu anuncio en Wayout</title>
+  <link rel="icon" href="../../img/isotipo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Red+Hat+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+  <link rel="stylesheet" href="../../estilo.css">
+  <link rel="stylesheet" href="../anunciar.css">
+  <style>
+    .status { padding: 56px 0 96px; max-width: 760px; }
+    .status .k { font-size: 14px; font-weight: 600; color: var(--ink-2); display: flex; align-items: center; gap: 10px; }
+    .status h1 { margin-top: 14px; font-size: clamp(36px, 5.4vw, 64px); font-weight: 700; letter-spacing: -.04em; line-height: .95; }
+    .status .lead { margin-top: 18px; font-size: 18px; max-width: 56ch; }
+    .status .summary { margin-top: 32px; }
+    .timeline { list-style: none; margin: 32px 0 0; padding: 0; }
+    .timeline li { display: grid; grid-template-columns: 28px 1fr; gap: 2px 14px; padding: 14px 0; border-top: 1px solid var(--line-strong); }
+    .timeline li .picto { background: var(--ivory-2); color: var(--ink-2); }
+    .timeline li.done .picto { background: var(--ink); color: var(--picto); }
+    .timeline li b { font-size: 16px; }
+    .timeline li p { grid-column: 2; font-size: 14px; color: var(--ink-2); }
+    .skel-line { height: 1em; background: var(--line-strong); border-radius: 2px; animation: pulse 1200ms ease-in-out infinite alternate; }
+  </style>
+</head>
+<body>
+  <header class="wrap top">
+    <a class="brand" href="../../">
+      <svg viewBox="0 0 560 560" aria-hidden="true"><path d="M361.29 138.579A200 200 0 1 0 361.29 421.421L219.869 280Z" fill="currentColor"/><path d="M540.131 280L398.71 138.579A200 200 0 0 0 398.71 421.421Z" fill="currentColor"/></svg>
+      Wayout
+    </a>
+    <a class="link" href="../">Anunciarse</a>
+  </header>
+  <main class="wrap">
+    <section class="status" id="estado" aria-live="polite">
+      <p class="k"><span class="picto" aria-hidden="true"><i class="ph-light ph-ticket"></i></span>Tu anuncio</p>
+      <div class="skel-line" style="width:70%;height:56px;margin-top:14px"></div>
+      <div class="skel-line" style="width:50%;margin-top:18px"></div>
+    </section>
+  </main>
+  <footer class="wrap">
+    <span>Wayout, una app de AVANC3.</span>
+    <a href="../">Anunciarse</a>
+    <a href="mailto:kevin2005_10@hotmail.com?subject=Mi%20anuncio%20en%20Wayout">Escribirnos</a>
+  </footer>
+  <script>
+  (() => {
+    const API = ["localhost", "127.0.0.1"].includes(location.hostname) ? "http://127.0.0.1:8799" : "";
+    const MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+    const fecha = (iso) => { const [y, m, d] = iso.split("-").map(Number); return `${d} ${MESES[m - 1]} ${y}`; };
+    const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+    const box = document.getElementById("estado");
+    const q = new URLSearchParams(location.search);
+    const id = q.get("id") || "";
+    const t = q.get("t") || "";
+    const cab = '<p class="k"><span class="picto" aria-hidden="true"><i class="ph-light ph-ticket"></i></span>Tu anuncio</p>';
+    const pinta = (h1, lead, extra = "") => { box.innerHTML = `${cab}<h1>${h1}</h1><p class="lead">${lead}</p>${extra}`; };
+
+    function paso(hecho, icono, titulo, texto) {
+      return `<li class="${hecho ? "done" : ""}"><span class="picto" aria-hidden="true"><i class="ph-light ${icono}"></i></span><b>${titulo}</b><p>${texto}</p></li>`;
+    }
+
+    async function cargar() {
+      if (!/^[a-z0-9]{12}$/.test(id) || !t) return pinta("Falta parte del enlace.", "Abre el enlace completo que te dimos al pagar. Si lo perdiste, escríbenos con el correo que usaste.");
+      try {
+        const r = await fetch(`${API}/api/anuncios/pedidos/${id}`, { cache: "no-store", headers: { "X-Token": t } });
+        const p = await r.json();
+        if (!r.ok || !p.ok) return pinta("No encontramos ese pedido.", esc(p.error || "Revisa que el enlace esté completo."));
+        const plan = `${p.tipo === "destacado" ? "Destacado" : "Normal"}, ${p.dias} días, ${p.precio} USD`;
+        const datos = `<div class="summary"><div class="dates"><span>Empieza</span><span>Último día</span><span>Plan</span><b>${fecha(p.inicio)}</b><b>${fecha(p.ultimoDia)}</b><b>${esc(plan)}</b></div></div>`;
+        if (p.estado === "rechazado" || p.estado === "retirado") {
+          return pinta(p.estado === "rechazado" ? "Tu anuncio no se publicó." : "Tu anuncio se retiró.",
+            `${esc(p.nota || "")} Te devolvimos ${p.reembolso ?? p.precio} USD por PayPal; puede tardar unos días en verse en tu cuenta.`, datos);
+        }
+        if (p.estado === "vencido" || p.estado === "reservado" || p.estado === "cancelado") {
+          return pinta("Este pedido no se pagó.", 'La reserva venció y no se cobró nada. Puedes <a href="../#planes">armarlo de nuevo</a> para ver la fecha libre.');
+        }
+        const enPantalla = p.enPantalla;
+        const h1 = p.terminado ? `Tu anuncio terminó el ${fecha(p.ultimoDia)}.` : enPantalla ? "Tu anuncio está en pantalla." : `Tu anuncio sale el ${fecha(p.inicio)}.`;
+        const lead = p.terminado ? "Gracias por anunciarte en Wayout. Si quieres repetir, el tablero de planes te muestra la próxima fecha libre."
+          : enPantalla ? `Se ve en todas las copias de Wayout hasta el ${fecha(p.ultimoDia)}.`
+          : p.estado === "aprobado" ? "Ya lo revisamos y está aprobado. Sale solo en su fecha." : "Lo estamos revisando. Si no cumple las reglas, te devolvemos todo el pago.";
+        const pasos = `<ol class="timeline">
+          ${paso(true, "ph-credit-card", "Pagado", esc(plan))}
+          ${paso(p.estado === "aprobado" || enPantalla || p.terminado, "ph-magnifying-glass", "Revisado", p.estado === "aprobado" ? "Cumple las reglas." : "Lo revisamos antes de su fecha de inicio.")}
+          ${paso(enPantalla || p.terminado, "ph-monitor", "En pantalla", `Del ${fecha(p.inicio)} al ${fecha(p.ultimoDia)}.`)}
+        </ol>`;
+        pinta(h1, lead, datos + pasos);
+      } catch {
+        pinta("No pudimos cargar el estado.", 'Revisa tu conexión y <a href="">recarga la página</a>.');
+      }
+    }
+    cargar();
+  })();
+  </script>
+</body>
+</html>

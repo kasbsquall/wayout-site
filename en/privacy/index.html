@@ -42,7 +42,7 @@
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-globe"></i></span>The connections it makes</h2>
       <ul>
-        <li>When it opens, it downloads <code>https://wayout.avanc3.pe/sponsor.json</code>, the file with the ads it shows. It is hosted on GitHub Pages. As with any website visit, the server receives your IP address and technical details of the request; the request carries no data about you or your computer.</li>
+        <li>When it opens, it downloads <code>https://wayout.avanc3.pe/sponsor.json</code>, the file with the ads it shows. Cloudflare serves it, merging paid ads with the rest of the site, which is hosted on GitHub Pages. As with any website visit, the server receives your IP address and technical details of the request; the request carries no data about you or your computer.</li>
         <li>After measuring, it checks <code>https://github.com/kasbsquall/wayout-releases/releases/latest/download/latest.json</code> to find out whether a new version exists, at most once every 12 hours while the app is open. GitHub receives your IP address and technical details of the request; the request carries no data about you or your computer. If there is a new version, Wayout downloads and installs it only when you ask, and checks its signature first.</li>
         <li>If you accept anonymous statistics, it sends to <code>eu.aptabase.com</code> what the next section describes.</li>
         <li>Banner images are served from this same site (<code>wayout.avanc3.pe</code>) and not from the advertiser's, so no advertiser receives your IP address unless you click.</li>
@@ -74,6 +74,16 @@
         <li>"Open Wayout when you sign in to Windows" is a Windows startup task instead of the registry entry. You can also see and change it in Task Manager, under Startup apps.</li>
       </ul>
       <p>Downloading and installing from the Store are covered by Microsoft's terms and privacy policy.</p>
+
+      <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-megaphone"></i></span>If you advertise on Wayout</h2>
+      <p>This applies only to people who buy an ad at <a href="../../anunciar/">wayout.avanc3.pe/anunciar</a>. People who use the app hand over none of this.</p>
+      <ul>
+        <li>We keep what you type in the form (brand, category, texts and link), the banner and logo you upload, and your email. The email is only used to write to you about that ad and is never published.</li>
+        <li>To limit abuse we keep an encrypted fingerprint of your IP address, which cannot be turned back into the address, and delete it after one hour.</li>
+        <li>PayPal processes the payment under its own privacy policy. We keep the order and capture numbers, the amount and any refund. We never see your card or PayPal account details.</li>
+        <li>All of this is stored on Cloudflare (D1 database and KV storage), acting as data processor.</li>
+        <li>The texts, link, banner and logo are published in the app during the dates you paid for. If you want us to delete your data once the ad ends, write to us.</li>
+      </ul>
 
       <h2><span class="picto" aria-hidden="true"><i class="ph-light ph-envelope-simple"></i></span>Contact</h2>
       <p>Wayout is an app by AVANC3, the trade name of Kevin Soto (Peru). For questions about this policy, write to <a href="mailto:kevin2005_10@hotmail.com">kevin2005_10@hotmail.com</a>. If the policy changes, the date above is updated.</p>

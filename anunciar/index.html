@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Anunciarse en Wayout</title>
-  <meta name="description" content="Wayout es una app gratuita de Windows que libera el disco de quien programa con IA. Dos espacios para marcas: patrocinador en la pantalla principal y banner 300x600 en el índice.">
+  <meta name="description" content="Pon tu producto frente a quien programa con IA. Banner y fila en Wayout desde 5 USD por 7 días: eliges plan, subes tu anuncio, ves la fecha en que sale y pagas con PayPal o tarjeta.">
   <link rel="icon" href="../img/isotipo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Red+Hat+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
   <link rel="stylesheet" href="../estilo.css">
+  <link rel="stylesheet" href="anunciar.css">
 </head>
 <body>
   <header class="wrap top">
@@ -23,83 +24,261 @@
 
   <main class="wrap">
     <section class="hero">
-      <h1 class="rise" style="--i:0">Tu marca, frente a quien programa con IA.</h1>
-      <p class="lead rise" style="--i:1">Wayout es una app gratuita de Windows que mide y limpia la basura de desarrollo: cachés de npm, pip y uv, carpetas node_modules, imágenes de Docker, temporales. Quien la abre tiene un disco lleno de proyectos que despliega y herramientas que paga. Es tu cliente de VPS, dominios y créditos de IA.</p>
+      <h1 class="rise" style="--i:0">Tu producto, frente a quien programa con IA.</h1>
+      <p class="lead rise" style="--i:1">Wayout es una app gratuita de Windows que libera el disco de los vibe coders. Quien la abre está construyendo algo y paga por hosting, dominios, APIs y cursos. Tu anuncio aparece en su pantalla mientras limpia.</p>
       <div class="acts rise" style="--i:2">
-        <a class="btn primary" href="https://wa.me/51917919061?text=Hola%20Kevin%2C%20quiero%20anunciarme%20en%20Wayout"><i class="ph-light ph-whatsapp-logo" aria-hidden="true"></i>Escribir por WhatsApp</a>
-        <a class="btn" href="mailto:kevin2005_10@hotmail.com?subject=Anunciarse%20en%20Wayout"><i class="ph-light ph-envelope-simple" aria-hidden="true"></i>Enviar un correo</a>
+        <a class="btn primary" href="#planes"><i class="ph-light ph-ticket" aria-hidden="true"></i>Ver planes y fechas</a>
+        <a class="btn" href="#donde"><i class="ph-light ph-eye" aria-hidden="true"></i>Dónde aparece</a>
       </div>
-      <p class="fine rise" style="--i:3">Respondemos el mismo día. Precio a convenir según formato y duración.</p>
+      <p class="price-line rise" style="--i:3">Desde 5 USD por 7 días. Pagas aquí con PayPal o tarjeta y te decimos el día exacto en que sale.</p>
     </section>
 
-    <section class="block" aria-labelledby="h-donde">
-      <h2 id="h-donde">Dónde aparece tu marca</h2>
+    <section class="block" id="donde" aria-labelledby="h-donde">
+      <h2 id="h-donde">Dónde aparece tu anuncio</h2>
       <div class="places">
         <figure class="shot rise" style="--i:1">
-          <img src="../img/app-1440.png" width="1440" height="900" alt="Pantalla principal de Wayout: cifra de gigabytes por liberar, barra del disco por tramos, tablas de cachés y carpetas, y el índice lateral con un banner de RackNerd" loading="eager" fetchpriority="high">
-          <figcaption>La pantalla única de Wayout. El banner vive en el índice de la izquierda; el espacio de patrocinador, al final de la lista, al lado de lo que el usuario acaba de liberar.</figcaption>
+          <img src="../img/app-1440.png" width="1440" height="900" alt="Pantalla principal de Wayout: cifra de gigabytes por liberar, barra del disco por tramos, tablas de cachés y carpetas, y el índice lateral con un banner" loading="lazy">
+          <figcaption>La pantalla única de Wayout. El banner va en el índice de la izquierda y la fila en el panel Patrocinadores.</figcaption>
         </figure>
         <ul class="rows">
           <li class="rise" style="--i:2">
             <span class="picto" aria-hidden="true"><i class="ph-light ph-image-square"></i></span>
-            <b>Banner 300 x 600 en el índice</b>
-            <p>Fijo a la izquierda, visible todo el tiempo que la app esté abierta. Si hay varios anunciantes, rotan en un carrusel con el intervalo que fijemos.</p>
-            <span class="spec">300 x 600 px, GIF, PNG o WebP, hasta 400 kB, un enlace. La imagen la alojamos nosotros</span>
-            <img src="../img/indice-banner.png" width="239" height="502" alt="Índice lateral de Wayout con el banner de 300 por 600 de RackNerd" loading="lazy" style="width:160px">
+            <b>Banner 300 × 600 en el índice</b>
+            <p>A la izquierda, visible todo el tiempo que la app está abierta. Rota con los demás anunciantes en un carrusel.</p>
+            <span class="spec">Tu imagen de 300 × 600 px, o la plantilla de Wayout con tu texto</span>
           </li>
           <li class="rise" style="--i:3">
-            <span class="picto" aria-hidden="true"><i class="ph-light ph-megaphone"></i></span>
-            <b>Espacio de patrocinador</b>
-            <p>Una fila con tu categoría, un titular, una frase y un botón, en el panel Patrocinadores de la pantalla principal. Hasta cuatro; el primero va destacado.</p>
-            <span class="spec">Categoría, titular de 50 caracteres, frase de 120, botón, un enlace</span>
-            <img src="../img/panel-patrocinio.png" width="640" height="171" alt="Panel Patrocinadores de Wayout con la fila de RackNerd destacada y el aviso de enlaces de afiliado" loading="lazy">
+            <span class="picto" aria-hidden="true"><i class="ph-light ph-rows"></i></span>
+            <b>Fila en Patrocinadores</b>
+            <p>Tu categoría, un titular, una frase y un botón con tu enlace, en el panel de la pantalla principal.</p>
+            <span class="spec">Titular de 50 caracteres, frase de 120, logo cuadrado opcional</span>
+          </li>
+          <li class="rise" style="--i:4">
+            <span class="picto" aria-hidden="true"><i class="ph-light ph-package"></i></span>
+            <b>Todos los planes traen los dos</b>
+            <p>Banner y fila van juntos. El destacado además sale primero en ambos sitios y se queda más tiempo en pantalla.</p>
           </li>
         </ul>
       </div>
     </section>
 
-    <section class="block" aria-labelledby="h-como">
-      <h2 id="h-como">Cómo funciona</h2>
-      <div class="terms">
-        <div class="rise" style="--i:1">
-          <span class="picto" aria-hidden="true"><i class="ph-light ph-lightning"></i></span>
-          <b>Cambios en minutos</b>
-          <p>Los anuncios se leen de un archivo remoto. Cambiar un banner o un texto no requiere que nadie actualice la app.</p>
-        </div>
-        <div class="rise" style="--i:2">
-          <span class="picto" aria-hidden="true"><i class="ph-light ph-shield-check"></i></span>
-          <b>Solo imagen y enlace</b>
-          <p>Nada de scripts ni rastreadores dentro de la app. El anuncio es una imagen o un texto y un enlace a tu página, con tu etiqueta de campaña si quieres medir.</p>
-        </div>
-        <div class="rise" style="--i:3">
-          <span class="picto" aria-hidden="true"><i class="ph-light ph-handshake"></i></span>
-          <b>Afiliados bienvenidos</b>
-          <p>Si tu programa paga comisión, el enlace puede ser de afiliado. La app lo declara al usuario: Wayout recibe una comisión y a él le cuesta lo mismo.</p>
-        </div>
-        <div class="rise" style="--i:4">
-          <span class="picto" aria-hidden="true"><i class="ph-light ph-chart-bar"></i></span>
-          <b>Cifras cuando existan</b>
-          <p>Wayout está en su versión 0.1, en pruebas con usuarios cercanos. Las cifras de uso se publicarán aquí en cuanto haya analítica con consentimiento; no inventamos números.</p>
+    <section class="block" id="planes" aria-labelledby="h-planes">
+      <h2 id="h-planes">Planes</h2>
+      <div class="board" role="group" aria-label="Elige tipo y duración">
+        <div class="h dur-h">Duración</div>
+        <div class="h"><span class="picto" aria-hidden="true"><i class="ph-light ph-rows"></i></span>Normal, 3 cupos</div>
+        <div class="h dest"><span class="picto" aria-hidden="true"><i class="ph-light ph-star"></i></span>Destacado, 1 cupo</div>
+        <div class="dur"><b>7 días</b><span>Una semana</span></div>
+        <button class="fare" type="button" data-tipo="normal" data-dias="7"></button>
+        <button class="fare dest" type="button" data-tipo="destacado" data-dias="7"></button>
+        <div class="dur"><b>30 días</b><span>20 % menos por día</span></div>
+        <button class="fare" type="button" data-tipo="normal" data-dias="30"></button>
+        <button class="fare dest" type="button" data-tipo="destacado" data-dias="30"></button>
+        <div class="dur"><b>90 días</b><span>Otro 20 % menos por día</span></div>
+        <button class="fare" type="button" data-tipo="normal" data-dias="90"></button>
+        <button class="fare dest" type="button" data-tipo="destacado" data-dias="90"></button>
+      </div>
+      <p class="board-note" id="board-note">Precios de lanzamiento en dólares, mientras Wayout no publique cifras de uso. Lo que pagas hoy no cambia aunque los precios suban.</p>
+    </section>
+
+    <section class="block" aria-labelledby="h-rota">
+      <h2 id="h-rota">Cómo rota y cuándo sale el tuyo</h2>
+      <div class="lanes">
+        <ol class="lane-list">
+          <li><span class="n" aria-hidden="true">01</span><b>Hay 4 cupos a la vez</b><p>Uno destacado y tres normales. Mientras dure tu plan, tu banner y tu fila están en todas las copias de Wayout.</p></li>
+          <li><span class="n" aria-hidden="true">02</span><b>El destacado sale primero</b><p>Al abrir la app se ve su banner durante 15 segundos y su fila va arriba, resaltada. Cada normal se ve 8 segundos y luego pasa el siguiente.</p></li>
+          <li><span class="n" aria-hidden="true">03</span><b>Si los cupos están llenos, entras en cuanto se libera uno</b><p>Antes de pagar te mostramos la fecha exacta de inicio y de fin. Tus días se cuentan desde ahí, ni uno menos.</p></li>
+          <li><span class="n" aria-hidden="true">04</span><b>Revisamos cada anuncio</b><p>Lo más pronto que sale es mañana: es el tiempo para revisarlo. Si no cumple las reglas, te devolvemos todo el pago.</p></li>
+        </ol>
+        <div class="cycle" aria-hidden="true">
+          <h3><span class="picto"><i class="ph-light ph-arrows-clockwise"></i></span>Una vuelta del carrusel</h3>
+          <div class="track">
+            <span class="d" style="--i:0">15 s</span><span class="x" style="--i:1">8 s</span><span class="x" style="--i:2">8 s</span><span class="x" style="--i:3">8 s</span><span class="c" style="--i:4">Wayout</span>
+          </div>
+          <div class="legend">
+            <span><i class="sw" style="background:var(--ink)"></i>Destacado</span>
+            <span><i class="sw" style="background:var(--tone-5)"></i>Normales</span>
+            <span><i class="sw" style="background:var(--ivory-2);border:1px dashed var(--line-strong)"></i>Aviso propio de Wayout</span>
+          </div>
+          <p class="note">El carrusel se pausa cuando el usuario pasa el ratón por encima, así que nadie se pierde un banner a medio leer.</p>
         </div>
       </div>
     </section>
 
-    <section class="block" aria-labelledby="h-contacto">
-      <div class="contact rise" style="--i:1">
-        <h2 id="h-contacto">Cuéntanos qué quieres anunciar</h2>
-        <p>Escribe a Kevin, de AVANC3 (Lima, Perú). Dinos el producto, el formato que te interesa y por cuánto tiempo; te respondemos con propuesta y precio el mismo día.</p>
-        <div class="lines">
-          <a class="line" href="https://wa.me/51917919061?text=Hola%20Kevin%2C%20quiero%20anunciarme%20en%20Wayout">
-            <span class="picto" aria-hidden="true"><i class="ph-light ph-whatsapp-logo"></i></span>
-            <span><span class="lab">WhatsApp</span><span class="val">+51 917 919 061</span></span>
-            <i class="ph-light ph-arrow-right arr" aria-hidden="true"></i>
-          </a>
-          <a class="line" href="mailto:kevin2005_10@hotmail.com?subject=Anunciarse%20en%20Wayout">
-            <span class="picto" aria-hidden="true"><i class="ph-light ph-envelope-simple"></i></span>
-            <span><span class="lab">Correo</span><span class="val">kevin2005_10@hotmail.com</span></span>
-            <i class="ph-light ph-arrow-right arr" aria-hidden="true"></i>
-          </a>
+    <section class="block" id="pedido" aria-labelledby="h-pedido">
+      <h2 id="h-pedido">Arma tu anuncio</h2>
+      <div class="buy">
+        <form class="steps" id="form" novalidate>
+          <section class="step">
+            <header><span class="n">01</span><h3>Plan y fecha</h3></header>
+            <div class="body">
+              <div class="plan-sum" id="plan-sum" aria-live="polite"><span>Elige un plan en el tablero de arriba.</span></div>
+              <input type="hidden" name="tipo" id="f-tipo">
+              <input type="hidden" name="dias" id="f-dias">
+              <div class="field">
+                <label for="f-fecha">Quiero empezar el</label>
+                <input type="date" name="fecha" id="f-fecha">
+                <span class="hint" id="fecha-hint">Si ese día no hay cupo, te damos el siguiente libre antes de pagar.</span>
+                <span class="err" data-err="fecha"></span>
+              </div>
+            </div>
+          </section>
+
+          <section class="step">
+            <header><span class="n">02</span><h3>Tu anuncio</h3></header>
+            <div class="body">
+              <div class="two">
+                <div class="field">
+                  <label for="f-marca">Nombre de tu producto o marca <span class="count" data-count="marca"></span></label>
+                  <input type="text" name="marca" id="f-marca" maxlength="40" autocomplete="organization" required>
+                  <span class="err" data-err="marca"></span>
+                </div>
+                <div class="field">
+                  <label for="f-categoria">Categoría <span class="count" data-count="categoria"></span></label>
+                  <input type="text" name="categoria" id="f-categoria" maxlength="20" placeholder="Hosting, Curso, API" required>
+                  <span class="err" data-err="categoria"></span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="f-url">Enlace al que lleva el anuncio</label>
+                <input type="url" name="url" id="f-url" maxlength="300" placeholder="https://tuproducto.com/?utm_source=wayout" required>
+                <span class="hint">Tiene que empezar con https://. Puedes agregar tu etiqueta de campaña para medir las visitas.</span>
+                <span class="err" data-err="url"></span>
+              </div>
+              <div class="field">
+                <label for="f-titular">Titular <span class="count" data-count="titular"></span></label>
+                <input type="text" name="titular" id="f-titular" maxlength="50" required>
+                <span class="err" data-err="titular"></span>
+              </div>
+              <div class="field">
+                <label for="f-frase">Frase <span class="count" data-count="frase"></span></label>
+                <input type="text" name="frase" id="f-frase" maxlength="120" required>
+                <span class="hint">Qué ganas tú, en una línea.</span>
+                <span class="err" data-err="frase"></span>
+              </div>
+              <div class="field">
+                <label for="f-boton">Texto del botón <span class="count" data-count="boton"></span></label>
+                <input type="text" name="boton" id="f-boton" maxlength="18" placeholder="Probar gratis" required>
+                <span class="err" data-err="boton"></span>
+              </div>
+
+              <div class="field">
+                <span class="lbl">Banner del índice</span>
+                <div class="choice">
+                  <label><input type="radio" name="banner" value="imagen" checked><b>Subo mi banner</b><span>300 × 600 px (o 600 × 1200), PNG, JPG, GIF o WebP, hasta 400 kB.</span></label>
+                  <label><input type="radio" name="banner" value="texto"><b>No tengo arte</b><span>Usamos tu titular, tu frase y tu botón con el diseño de Wayout.</span></label>
+                </div>
+                <div class="drop" id="drop-banner">
+                  <i class="ph-light ph-image-square" aria-hidden="true"></i>
+                  <input type="file" name="imagen" id="f-imagen" accept="image/png,image/jpeg,image/gif,image/webp" aria-label="Archivo del banner">
+                </div>
+                <span class="err" data-err="imagen"></span>
+              </div>
+              <div class="field">
+                <span class="lbl">Logo para la fila (opcional)</span>
+                <div class="drop">
+                  <i class="ph-light ph-circle-dashed" aria-hidden="true"></i>
+                  <input type="file" name="logo" id="f-logo" accept="image/png,image/jpeg,image/gif,image/webp" aria-label="Archivo del logo">
+                </div>
+                <span class="hint">Cuadrado, de 56 a 512 px, hasta 100 kB.</span>
+                <span class="err" data-err="logo"></span>
+              </div>
+
+              <details class="en">
+                <summary>Textos en inglés (opcional)</summary>
+                <div class="body" style="padding:0">
+                  <p class="hint">Wayout también se usa en inglés. Si los dejas vacíos, ahí se muestran los de español.</p>
+                  <div class="field"><label for="f-en-titular">Titular en inglés <span class="count" data-count="en_titular"></span></label><input type="text" name="en_titular" id="f-en-titular" maxlength="50"><span class="err" data-err="en_titular"></span></div>
+                  <div class="field"><label for="f-en-frase">Frase en inglés <span class="count" data-count="en_frase"></span></label><input type="text" name="en_frase" id="f-en-frase" maxlength="120"><span class="err" data-err="en_frase"></span></div>
+                  <div class="field"><label for="f-en-boton">Botón en inglés <span class="count" data-count="en_boton"></span></label><input type="text" name="en_boton" id="f-en-boton" maxlength="18"><span class="err" data-err="en_boton"></span></div>
+                </div>
+              </details>
+            </div>
+          </section>
+
+          <section class="step">
+            <header><span class="n">03</span><h3>Contacto y reglas</h3></header>
+            <div class="body">
+              <div class="field">
+                <label for="f-correo">Tu correo</label>
+                <input type="email" name="correo" id="f-correo" maxlength="120" autocomplete="email" required>
+                <span class="hint">Solo para escribirte sobre este anuncio. No lo publicamos ni lo usamos para otra cosa.</span>
+                <span class="err" data-err="correo"></span>
+              </div>
+              <label class="check"><input type="checkbox" name="reglas" value="si" id="f-reglas"><span>Leí y acepto las <a href="#reglas">reglas para anunciar</a>. Entiendo que si mi anuncio no las cumple, se rechaza y me devuelven el pago.</span></label>
+              <span class="err" data-err="reglas"></span>
+              <div class="form-err" id="form-err" role="alert"></div>
+              <div class="send">
+                <button class="btn primary" type="submit" id="enviar"><i class="ph-light ph-calendar-check" aria-hidden="true"></i>Ver fechas y pagar</button>
+                <span class="fine">Todavía no se cobra nada. Primero ves las fechas y el total.</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="summary" id="resumen" hidden aria-live="polite"></section>
+        </form>
+
+        <aside class="pv" aria-label="Vista previa de tu anuncio">
+          <h3><span class="picto" aria-hidden="true"><i class="ph-light ph-eye"></i></span>Así se ve en Wayout</h3>
+          <div class="frame">
+            <span class="k">Publicidad</span>
+            <div class="ban" id="pv-ban"></div>
+          </div>
+          <div class="spot" id="pv-spot"></div>
+          <p class="meta" id="pv-meta">Medidas reales: el banner a 2/3 de su tamaño y la fila tal cual.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="block" id="reglas" aria-labelledby="h-reglas">
+      <h2 id="h-reglas">Reglas para anunciar</h2>
+      <div class="rules">
+        <div>
+          <h3><span class="picto" aria-hidden="true"><i class="ph-light ph-prohibit"></i></span>No se aceptan</h3>
+          <ul>
+            <li><i class="ph-light ph-x" aria-hidden="true"></i>Desnudos, contenido sexual o para adultos.</li>
+            <li><i class="ph-light ph-x" aria-hidden="true"></i>Apuestas, casinos, criptomonedas, trading o promesas de dinero fácil.</li>
+            <li><i class="ph-light ph-x" aria-hidden="true"></i>Armas, drogas, alcohol, tabaco o vapeadores.</li>
+            <li><i class="ph-light ph-x" aria-hidden="true"></i>Software pirata, cracks, cuentas robadas, malware o herramientas para atacar a otros.</li>
+            <li><i class="ph-light ph-x" aria-hidden="true"></i>Estafas, esquemas piramidales o información falsa.</li>
+            <li><i class="ph-light ph-x" aria-hidden="true"></i>Odio, violencia o propaganda política.</li>
+            <li><i class="ph-light ph-x" aria-hidden="true"></i>Banners que imiten avisos de Windows o de Wayout, como "tu PC tiene virus".</li>
+            <li><i class="ph-light ph-x" aria-hidden="true"></i>Enlaces que descargan un programa directo o que esconden el destino con un acortador.</li>
+          </ul>
         </div>
+        <div>
+          <h3><span class="picto" aria-hidden="true"><i class="ph-light ph-handshake"></i></span>Condiciones</h3>
+          <ul>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>El enlace funciona y lleva a lo que promete el anuncio.</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>La marca es tuya o tienes permiso para anunciarla.</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Revisamos cada anuncio antes de su fecha. Si no cumple, se rechaza y te devolvemos el 100 % por PayPal.</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Si hay que retirarlo cuando ya está en pantalla, te devolvemos los días que faltaban.</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Tus días corren desde la fecha confirmada. Para cambiar el texto o el banner, escríbenos.</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Wayout todavía no publica cifras de uso, así que no garantizamos un número de vistas ni de clics.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-preguntas">
+      <h2 id="h-preguntas">Preguntas</h2>
+      <div class="faq">
+        <details>
+          <summary><span class="picto" aria-hidden="true"><i class="ph-light ph-users"></i></span>¿Cuánta gente lo va a ver?<i class="ph-light ph-plus tog" aria-hidden="true"></i></summary>
+          <div class="ans"><p>Wayout acaba de salir en la Microsoft Store y todavía no tiene cifras públicas de uso. Por eso los precios son de lanzamiento. Cuando haya cifras, las publicamos aquí.</p></div>
+        </details>
+        <details>
+          <summary><span class="picto" aria-hidden="true"><i class="ph-light ph-credit-card"></i></span>¿Cómo pago?<i class="ph-light ph-plus tog" aria-hidden="true"></i></summary>
+          <div class="ans"><p>Con PayPal o con tarjeta de débito o crédito, en el botón de PayPal que aparece al final del formulario. PayPal te manda el recibo a tu correo.</p></div>
+        </details>
+        <details>
+          <summary><span class="picto" aria-hidden="true"><i class="ph-light ph-clock-countdown"></i></span>¿Cómo sé en qué va mi anuncio?<i class="ph-light ph-plus tog" aria-hidden="true"></i></summary>
+          <div class="ans"><p>Al pagar te damos un enlace de seguimiento con el estado y las fechas. Guárdalo: es la única forma de verlo sin escribirnos.</p></div>
+        </details>
+        <details>
+          <summary><span class="picto" aria-hidden="true"><i class="ph-light ph-chat-circle"></i></span>¿Y si tengo otra duda?<i class="ph-light ph-plus tog" aria-hidden="true"></i></summary>
+          <div class="ans"><p>Escríbenos a <a href="mailto:kevin2005_10@hotmail.com?subject=Anunciarse%20en%20Wayout">kevin2005_10@hotmail.com</a> o por <a href="https://wa.me/51917919061?text=Hola%2C%20tengo%20una%20duda%20sobre%20anunciarme%20en%20Wayout">WhatsApp</a>.</p></div>
+        </details>
       </div>
     </section>
   </main>
@@ -112,5 +291,6 @@
     <a href="../que-borra/">Qué borra y qué no</a>
     <a href="https://avanc3.pe">avanc3.pe</a>
   </footer>
+  <script src="anunciar.js" defer></script>
 </body>
 </html>
